@@ -1,0 +1,17 @@
+{
+  "name": "fluid_design",
+  "version": "1.0.0",
+  "description": "Fluid design system for Django (unofficial)",
+  "homepage": "https://github.com/dozymoe/django-fluid-design",
+  "author": "Fahri Reza <dozymoe@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dozymoe/django-fluid-design.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dozymoe/django-fluid-design/issues"
+  },
+  "dependencies": {
+    "@engie-group/fluid-design-system": "~5.2.0"
+  }
+}

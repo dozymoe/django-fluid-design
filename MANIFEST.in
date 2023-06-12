@@ -1,0 +1,21 @@
+include fluid_design/README.rst
+recursive-include fluid_design/forms-js *
+recursive-include fluid_design/js *
+recursive-include fluid_design/locale *
+recursive-include fluid_design/mithril-js *
+recursive-include fluid_design/sass *
+recursive-include fluid_design/static *
+exclude run
+exclude wscript
+exclude README-Upload.rst
+exclude requirements.txt
+exclude build.yml
+exclude .git*
+exclude MANIFEST.in
+prune docs
+prune docs_build
+prune docsrc
+prune etc
+prune lib
+prune fluid_design/tests
+prune djangoprj

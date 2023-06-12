@@ -1,0 +1,11 @@
+-r requirements-production.txt
+
+bs4
+build
+chevron
+coverage
+Pillow
+pybuildtool
+pylint
+sphinx
+twine
