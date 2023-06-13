@@ -6,7 +6,8 @@ See: https://www.engie.design/fluid-design-system/components/form/
 
 Forms are used to send and collect data.
 """
-from django.forms.widgets import PasswordInput as PasswordWidget
+from django.forms.widgets import (PasswordInput as PasswordWidget,
+        Textarea as TextareaWidget)
 from django.utils.translation import gettext as _
 #-
 from .base import FormNode
@@ -186,8 +187,80 @@ class TextInputIcon(TextInput):
         return tmpl.format(**values)
 
 
+class Textarea(TextInput):
+    """Form textarea item component
+    """
+    widget_class = TextareaWidget
+
+    def render_default(self, values, context):
+        """Html output of the component
+        """
+        if self.bound_field.errors:
+            template = """
+<div class="nj-form-item nj-form-item--textarea nj-form-item--error {wrapper_class}"
+    {wrapper_props}>
+  <div class="nj-form-item__field-wrapper">
+    {tmpl_element}
+    {tmpl_label}
+    {slot_icon}
+  </div>
+  {tmpl_help}
+  {tmpl_errors}
+</div>
+"""
+        else:
+            template = """
+<div class="nj-form-item nj-form-item--textarea {wrapper_class}"
+    {wrapper_props}>
+  <div class="nj-form-item__field-wrapper">
+    {tmpl_element}
+    {tmpl_label}
+    {slot_icon}
+  </div>
+  {tmpl_help}
+</div>
+"""
+        return self.format(template, values, context)
+
+
+class NumberInput(TextInput):
+    """Form number item component
+    """
+    def render_default(self, values, context):
+        """Html output of the component
+        """
+        if self.bound_field.errors:
+            template = """
+<div class="nj-form-item nj-form-item--textarea nj-form-item--error {wrapper_class}"
+    {wrapper_props}>
+  <div class="nj-form-item__field-wrapper">
+    {tmpl_element}
+    {tmpl_label}
+    {slot_icon}
+  </div>
+  {tmpl_help}
+  {tmpl_errors}
+</div>
+"""
+        else:
+            template = """
+<div class="nj-form-item nj-form-item--textarea {wrapper_class}"
+    {wrapper_props}>
+  <div class="nj-form-item__field-wrapper">
+    {tmpl_element}
+    {tmpl_label}
+    {slot_icon}
+  </div>
+  {tmpl_help}
+</div>
+"""
+        return self.format(template, values, context)
+
+
 components = {
+    'NumberInput': NumberInput,
     'PasswordInput': PasswordInput,
     'TextInput': TextInput,
     'TextInputIcon': TextInputIcon,
+    'Textarea': Textarea,
 }

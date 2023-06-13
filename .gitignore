@@ -3,6 +3,7 @@
 /docsrc/gen/
 /docs_build/
 /node_modules/
+/yarn.lock
 
 # git
 

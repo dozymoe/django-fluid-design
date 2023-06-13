@@ -617,7 +617,8 @@ class FormNode(Node):
         """
         if not values['label']:
             return ''
-        if self.bound_field.field.required:
+        if self.bound_field.field.required or\
+                var_eval(self.kwargs.get('required'), context):
             tmpl = """
 <label for="{id}" class="nj-form-item__label {label_class}" {label_props}>
   {label}{label_suffix}
