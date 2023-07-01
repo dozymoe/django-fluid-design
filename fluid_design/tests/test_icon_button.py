@@ -55,12 +55,12 @@ class IconButtonTest(SimpleTestCase):
     def test_example2(self):
         template = """
 {% load fluid_design %}
-{% IconButton type="button" variant="secondary" %}
+{% IconButton type="button" style="secondary" %}
   {% Slot 'icon' %}
     <i class="nj-icon-btn__icon material-icons">close</i>
   {% endSlot %}
 {% endIconButton %}
-{% IconButton type="button" variant="secondary" disabled=True %}
+{% IconButton type="button" style="secondary" disabled=True %}
   {% Slot 'icon' %}
     <i class="nj-icon-btn__icon material-icons">close</i>
   {% endSlot %}
@@ -82,7 +82,7 @@ class IconButtonTest(SimpleTestCase):
     def test_example3(self):
         template = """
 {% load fluid_design %}
-{% IconButton type="button" variant="destructive" %}
+{% IconButton type="button" style="destructive" %}
   Some accessible label
   {% Slot 'icon' %}
     <span aria-hidden="true" class="nj-icon-btn__icon material-icons">
@@ -90,7 +90,7 @@ class IconButtonTest(SimpleTestCase):
     </span>
   {% endSlot %}
 {% endIconButton %}
-{% IconButton type="button" variant="destructive" disabled=True %}
+{% IconButton type="button" style="destructive" disabled=True %}
   Some accessible label
   {% Slot 'icon' %}
     <span aria-hidden="true" class="nj-icon-btn__icon material-icons">
@@ -118,7 +118,7 @@ class IconButtonTest(SimpleTestCase):
         template = """
 {% load fluid_design %}
 <div style="background-color: var(--nj-color-palette-ultramarine-800); padding: var(--nj-size-space-16);">
-  {% IconButton type="button" inversed=True %}
+  {% IconButton type="button" style="inverse" %}
     Some accessible label
     {% Slot 'icon' %}
       <span aria-hidden="true" class="nj-icon-btn__icon material-icons">
@@ -126,7 +126,7 @@ class IconButtonTest(SimpleTestCase):
       </span>
     {% endSlot %}
   {% endIconButton %}
-  {% IconButton type="button" inversed=True disabled=True %}
+  {% IconButton type="button" style="inverse" disabled=True %}
     Some accessible label
     {% Slot 'icon' %}
       <span aria-hidden="true" class="nj-icon-btn__icon material-icons">

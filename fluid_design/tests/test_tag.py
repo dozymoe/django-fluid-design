@@ -256,228 +256,228 @@ class TagTest(SimpleTestCase):
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="brand" inversed=True %}brand{% endTag %}
-    {% Tag style="brand" inversed=True %}
+    {% Tag color="brand" inversed=True %}brand{% endTag %}
+    {% Tag color="brand" inversed=True %}
       brand
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="brand" href="#" delete=True inversed=True %}brand{% endTag %}
-    {% Tag style="brand" href="#" delete=True inversed=True %}
+    {% Tag color="brand" href="#" delete=True inversed=True %}brand{% endTag %}
+    {% Tag color="brand" href="#" delete=True inversed=True %}
       brand
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="brand" disabled=True inversed=True %}
+    {% Tag color="brand" disabled=True inversed=True %}
       brand
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="grey" inversed=True %}grey{% endTag %}
-    {% Tag style="grey" inversed=True %}
+    {% Tag color="grey" inversed=True %}grey{% endTag %}
+    {% Tag color="grey" inversed=True %}
       grey
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="grey" href="#" delete=True inversed=True %}grey{% endTag %}
-    {% Tag style="grey" href="#" delete=True inversed=True %}
+    {% Tag color="grey" href="#" delete=True inversed=True %}grey{% endTag %}
+    {% Tag color="grey" href="#" delete=True inversed=True %}
       grey
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="grey" disabled=True inversed=True %}
+    {% Tag color="grey" disabled=True inversed=True %}
       grey
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="teal" inversed=True %}teal{% endTag %}
-    {% Tag style="teal" inversed=True %}
+    {% Tag color="teal" inversed=True %}teal{% endTag %}
+    {% Tag color="teal" inversed=True %}
       teal
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="teal" href="#" delete=True inversed=True %}teal{% endTag %}
-    {% Tag style="teal" href="#" delete=True inversed=True %}
+    {% Tag color="teal" href="#" delete=True inversed=True %}teal{% endTag %}
+    {% Tag color="teal" href="#" delete=True inversed=True %}
       teal
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="teal" disabled=True inversed=True %}
+    {% Tag color="teal" disabled=True inversed=True %}
       teal
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="pink" inversed=True %}pink{% endTag %}
-    {% Tag style="pink" inversed=True %}
+    {% Tag color="pink" inversed=True %}pink{% endTag %}
+    {% Tag color="pink" inversed=True %}
       pink
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="pink" href="#" delete=True inversed=True %}pink{% endTag %}
-    {% Tag style="pink" href="#" delete=True inversed=True %}
+    {% Tag color="pink" href="#" delete=True inversed=True %}pink{% endTag %}
+    {% Tag color="pink" href="#" delete=True inversed=True %}
       pink
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="pink" disabled=True inversed=True %}
+    {% Tag color="pink" disabled=True inversed=True %}
       pink
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="orange" inversed=True %}orange{% endTag %}
-    {% Tag style="orange" inversed=True %}
+    {% Tag color="orange" inversed=True %}orange{% endTag %}
+    {% Tag color="orange" inversed=True %}
       orange
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="orange" href="#" delete=True inversed=True %}orange{% endTag %}
-    {% Tag style="orange" href="#" delete=True inversed=True %}
+    {% Tag color="orange" href="#" delete=True inversed=True %}orange{% endTag %}
+    {% Tag color="orange" href="#" delete=True inversed=True %}
       orange
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="orange" disabled=True inversed=True %}
+    {% Tag color="orange" disabled=True inversed=True %}
       orange
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="red" inversed=True %}red{% endTag %}
-    {% Tag style="red" inversed=True %}
+    {% Tag color="red" inversed=True %}red{% endTag %}
+    {% Tag color="red" inversed=True %}
       red
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="red" href="#" delete=True inversed=True %}red{% endTag %}
-    {% Tag style="red" href="#" delete=True inversed=True %}
+    {% Tag color="red" href="#" delete=True inversed=True %}red{% endTag %}
+    {% Tag color="red" href="#" delete=True inversed=True %}
       red
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="red" disabled=True inversed=True %}
+    {% Tag color="red" disabled=True inversed=True %}
       red
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="green" inversed=True %}green{% endTag %}
-    {% Tag style="green" inversed=True %}
+    {% Tag color="green" inversed=True %}green{% endTag %}
+    {% Tag color="green" inversed=True %}
       green
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="green" href="#" delete=True inversed=True %}green{% endTag %}
-    {% Tag style="green" href="#" delete=True inversed=True %}
+    {% Tag color="green" href="#" delete=True inversed=True %}green{% endTag %}
+    {% Tag color="green" href="#" delete=True inversed=True %}
       green
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="green" disabled=True inversed=True %}
+    {% Tag color="green" disabled=True inversed=True %}
       green
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="ultramarine" inversed=True %}ultramarine{% endTag %}
-    {% Tag style="ultramarine" inversed=True %}
+    {% Tag color="ultramarine" inversed=True %}ultramarine{% endTag %}
+    {% Tag color="ultramarine" inversed=True %}
       ultramarine
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="ultramarine" href="#" delete=True inversed=True %}ultramarine{% endTag %}
-    {% Tag style="ultramarine" href="#" delete=True inversed=True %}
+    {% Tag color="ultramarine" href="#" delete=True inversed=True %}ultramarine{% endTag %}
+    {% Tag color="ultramarine" href="#" delete=True inversed=True %}
       ultramarine
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="ultramarine" disabled=True inversed=True %}
+    {% Tag color="ultramarine" disabled=True inversed=True %}
       ultramarine
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="yellow" inversed=True %}yellow{% endTag %}
-    {% Tag style="yellow" inversed=True %}
+    {% Tag color="yellow" inversed=True %}yellow{% endTag %}
+    {% Tag color="yellow" inversed=True %}
       yellow
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="yellow" href="#" delete=True inversed=True %}yellow{% endTag %}
-    {% Tag style="yellow" href="#" delete=True inversed=True %}
+    {% Tag color="yellow" href="#" delete=True inversed=True %}yellow{% endTag %}
+    {% Tag color="yellow" href="#" delete=True inversed=True %}
       yellow
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="yellow" disabled=True inversed=True %}
+    {% Tag color="yellow" disabled=True inversed=True %}
       yellow
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="purple" inversed=True %}purple{% endTag %}
-    {% Tag style="purple" inversed=True %}
+    {% Tag color="purple" inversed=True %}purple{% endTag %}
+    {% Tag color="purple" inversed=True %}
       purple
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="purple" href="#" delete=True inversed=True %}purple{% endTag %}
-    {% Tag style="purple" href="#" delete=True inversed=True %}
+    {% Tag color="purple" href="#" delete=True inversed=True %}purple{% endTag %}
+    {% Tag color="purple" href="#" delete=True inversed=True %}
       purple
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="purple" disabled=True inversed=True %}
+    {% Tag color="purple" disabled=True inversed=True %}
       purple
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="blue" inversed=True %}blue{% endTag %}
-    {% Tag style="blue" inversed=True %}
+    {% Tag color="blue" inversed=True %}blue{% endTag %}
+    {% Tag color="blue" inversed=True %}
       blue
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="blue" href="#" delete=True inversed=True %}blue{% endTag %}
-    {% Tag style="blue" href="#" delete=True inversed=True %}
+    {% Tag color="blue" href="#" delete=True inversed=True %}blue{% endTag %}
+    {% Tag color="blue" href="#" delete=True inversed=True %}
       blue
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="blue" disabled=True inversed=True %}
+    {% Tag color="blue" disabled=True inversed=True %}
       blue
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="lime" inversed=True %}lime{% endTag %}
-    {% Tag style="lime" inversed=True %}
+    {% Tag color="lime" inversed=True %}lime{% endTag %}
+    {% Tag color="lime" inversed=True %}
       lime
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="lime" href="#" delete=True inversed=True %}lime{% endTag %}
-    {% Tag style="lime" href="#" delete=True inversed=True %}
+    {% Tag color="lime" href="#" delete=True inversed=True %}lime{% endTag %}
+    {% Tag color="lime" href="#" delete=True inversed=True %}
       lime
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="lime" disabled=True inversed=True %}
+    {% Tag color="lime" disabled=True inversed=True %}
       lime
 
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
@@ -1097,209 +1097,209 @@ class TagTest(SimpleTestCase):
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="brand" %}brand{% endTag %}
-    {% Tag style="brand" %}
+    {% Tag color="brand" %}brand{% endTag %}
+    {% Tag color="brand" %}
       brand
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="brand" href="#" delete=True %}XXX{% endTag %}
-    {% Tag style="brand" href="#" delete=True %}
+    {% Tag color="brand" href="#" delete=True %}XXX{% endTag %}
+    {% Tag color="brand" href="#" delete=True %}
       XXX
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="brand" disabled=True %}
+    {% Tag color="brand" disabled=True %}
       brand
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="teal" %}teal{% endTag %}
-    {% Tag style="teal" %}
+    {% Tag color="teal" %}teal{% endTag %}
+    {% Tag color="teal" %}
       teal
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="teal" href="#" delete=True %}XXX{% endTag %}
-    {% Tag style="teal" href="#" delete=True %}
+    {% Tag color="teal" href="#" delete=True %}XXX{% endTag %}
+    {% Tag color="teal" href="#" delete=True %}
       XXX
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="teal" disabled=True %}
+    {% Tag color="teal" disabled=True %}
       teal
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="pink" %}pink{% endTag %}
-    {% Tag style="pink" %}
+    {% Tag color="pink" %}pink{% endTag %}
+    {% Tag color="pink" %}
       pink
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="pink" href="#" delete=True %}XXX{% endTag %}
-    {% Tag style="pink" href="#" delete=True %}
+    {% Tag color="pink" href="#" delete=True %}XXX{% endTag %}
+    {% Tag color="pink" href="#" delete=True %}
       XXX
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="pink" disabled=True %}
+    {% Tag color="pink" disabled=True %}
       pink
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="orange" %}orange{% endTag %}
-    {% Tag style="orange" %}
+    {% Tag color="orange" %}orange{% endTag %}
+    {% Tag color="orange" %}
       orange
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="orange" href="#" delete=True %}XXX{% endTag %}
-    {% Tag style="orange" href="#" delete=True %}
+    {% Tag color="orange" href="#" delete=True %}XXX{% endTag %}
+    {% Tag color="orange" href="#" delete=True %}
       XXX
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="orange" disabled=True %}
+    {% Tag color="orange" disabled=True %}
       orange
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="red" %}red{% endTag %}
-    {% Tag style="red" %}
+    {% Tag color="red" %}red{% endTag %}
+    {% Tag color="red" %}
       red
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="red" href="#" delete=True %}XXX{% endTag %}
-    {% Tag style="red" href="#" delete=True %}
+    {% Tag color="red" href="#" delete=True %}XXX{% endTag %}
+    {% Tag color="red" href="#" delete=True %}
       XXX
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="red" disabled=True %}
+    {% Tag color="red" disabled=True %}
       red
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="green" %}green{% endTag %}
-    {% Tag style="green" %}
+    {% Tag color="green" %}green{% endTag %}
+    {% Tag color="green" %}
       green
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="green" href="#" delete=True %}XXX{% endTag %}
-    {% Tag style="green" href="#" delete=True %}
+    {% Tag color="green" href="#" delete=True %}XXX{% endTag %}
+    {% Tag color="green" href="#" delete=True %}
       XXX
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="green" disabled=True %}
+    {% Tag color="green" disabled=True %}
       green
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="ultramarine" %}ultramarine{% endTag %}
-    {% Tag style="ultramarine" %}
+    {% Tag color="ultramarine" %}ultramarine{% endTag %}
+    {% Tag color="ultramarine" %}
       ultramarine
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="ultramarine" href="#" delete=True %}XXX{% endTag %}
-    {% Tag style="ultramarine" href="#" delete=True %}
+    {% Tag color="ultramarine" href="#" delete=True %}XXX{% endTag %}
+    {% Tag color="ultramarine" href="#" delete=True %}
       XXX
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="ultramarine" disabled=True %}
+    {% Tag color="ultramarine" disabled=True %}
       ultramarine
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="yellow" %}yellow{% endTag %}
-    {% Tag style="yellow" %}
+    {% Tag color="yellow" %}yellow{% endTag %}
+    {% Tag color="yellow" %}
       yellow
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="yellow" href="#" delete=True %}XXX{% endTag %}
-    {% Tag style="yellow" href="#" delete=True %}
+    {% Tag color="yellow" href="#" delete=True %}XXX{% endTag %}
+    {% Tag color="yellow" href="#" delete=True %}
       XXX
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="yellow" disabled=True %}
+    {% Tag color="yellow" disabled=True %}
       yellow
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="purple" %}purple{% endTag %}
-    {% Tag style="purple" %}
+    {% Tag color="purple" %}purple{% endTag %}
+    {% Tag color="purple" %}
       purple
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="purple" href="#" delete=True %}XXX{% endTag %}
-    {% Tag style="purple" href="#" delete=True %}
+    {% Tag color="purple" href="#" delete=True %}XXX{% endTag %}
+    {% Tag color="purple" href="#" delete=True %}
       XXX
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="purple" disabled=True %}
+    {% Tag color="purple" disabled=True %}
       purple
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="blue" %}blue{% endTag %}
-    {% Tag style="blue" %}
+    {% Tag color="blue" %}blue{% endTag %}
+    {% Tag color="blue" %}
       blue
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="blue" href="#" delete=True %}XXX{% endTag %}
-    {% Tag style="blue" href="#" delete=True %}
+    {% Tag color="blue" href="#" delete=True %}XXX{% endTag %}
+    {% Tag color="blue" href="#" delete=True %}
       XXX
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="blue" disabled=True %}
+    {% Tag color="blue" disabled=True %}
       blue
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
   </div>
   <div style="display: flex; align-items: center; flex-wrap: wrap; gap: var(--nj-size-space-8)">
-    {% Tag style="lime" %}lime{% endTag %}
-    {% Tag style="lime" %}
+    {% Tag color="lime" %}lime{% endTag %}
+    {% Tag color="lime" %}
       lime
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="lime" href="#" delete=True %}XXX{% endTag %}
-    {% Tag style="lime" href="#" delete=True %}
+    {% Tag color="lime" href="#" delete=True %}XXX{% endTag %}
+    {% Tag color="lime" href="#" delete=True %}
       XXX
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}
     {% endTag %}
-    {% Tag style="lime" disabled=True %}
+    {% Tag color="lime" disabled=True %}
       lime
   
       {% Slot 'icon' class="material-icons" %}check{% endSlot %}

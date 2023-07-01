@@ -297,6 +297,8 @@ class Node(template.Node):
         if slot:
             method = getattr(self, f'render_slot_{name}', None)
             if method:
+                slot_values = values.get(f'slot_{name}_values', {})
+
                 # Process values set in self.before_prepare_slots()
                 self.after_prepare_class_props(name, values, context)
 
@@ -314,6 +316,7 @@ class Node(template.Node):
                             'id': values['id'],
                             'label': slot.label(context),
                             'astag': slot.astag(context),
+                            **slot_values,
                         },
                         context)
                 # Destroy slot local context.
@@ -382,6 +385,7 @@ class Node(template.Node):
             else:
                 values[f'{name}_class'] = []
                 values[f'{name}_props'] = []
+            values[f'{name}_values'] = {}
 
 
     def after_prepare(self, values, context):

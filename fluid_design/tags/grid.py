@@ -8,8 +8,7 @@ All about the grid! Grid systems are used to create perfect layouts. Our grid
 system is based on the Bootstrap v4 grid. Use the mobile-first flexbox grid to
 build layouts of all shapes and sizes with a twelve column system, five default
 responsive tiers, Sass variables and mixins, and dozens of predefined classes.
-""" # pylint:disable=line-too-long
-
+"""
 from .base import Node
 
 class Grid(Node):
@@ -40,6 +39,7 @@ class GridRow(Node):
             'gutter',
             *['align_%s' % x for x in COL_SIZES],
             *['valign_%s' % x for x in COL_SIZES])
+    "Extended Template Tag arguments."
     DEFAULT_TAG = 'div'
     "Rendered HTML tag."
     POSSIBLE_ALIGNS = ('start', 'center', 'end', 'around', 'between')

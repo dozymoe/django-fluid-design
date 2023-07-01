@@ -666,6 +666,9 @@ class FormItemTest(SimpleTestCase):
     def test_example13(self):
         template = """
 {% load fluid_design %}
+<form>
+  {% NumberInput form1.number id="input-number-default" label="Amount" max="100" min="-100" %}
+</form>
 """
         expected = """
 <form>
@@ -677,6 +680,7 @@ class FormItemTest(SimpleTestCase):
       </button>
   
       <input
+        name="number"
         type="number"
         inputmode="numeric"
         class="nj-form-item__field"
@@ -813,7 +817,27 @@ class FormItemTest(SimpleTestCase):
 {% load fluid_design %}
 <form style="display: flex; flex-direction: column; gap: 4px; padding: 20px; width: 350px; margin: 0 auto">
   <h2>With <code>min</code> and <code>max</code> attributes</h2>
-  {% NumberInput form1.number %}
+  {% NumberInput form1.number label="Amount" id="input-number-default" min="-10" max="10" %}
+  <h2>With <code>step</code> and <code>max</code> attributes</h2>
+  {% NumberInput form1.number label="Amount" id="input-number-static" step="0.3" max="3" static=True %}
+  <h2>With hint and error</h2>
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+    {% NumberInput form1.number_help label="Amount" id="input-number-hint"%}
+    {% NumberInput form1.number_invalid label="Amount" id="input-number-error"%}
+  </div>
+  <h2>With <code>disabled</code> and <code>readonly</code> attributes</h2>
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+    {% NumberInput form1.number label="Amount" id="input-number-disabled" static=True disabled=True %}
+    {% NumberInput form1.number label="Amount" id="input-number-readonly" readonly=True %}
+  </div>
+  <h2>With different sizes</h2>
+  <div style="display: flex; flex-direction: column; gap: 16px;">
+    {% NumberInput form1.number label="Amount" id="input-number-size-sm" size="sm" %}
+    {% NumberInput form1.number label="Amount" id="input-number-size-lg" size="lg" %}
+    {% NumberInput form1.number label="Amount" id="input-number-size-xl" size="xl" static=True %}
+  </div>
+  <h2>With custom live zone format</h2>
+    {% NumberInput form1.number label="Adults" min="1" id="input-number-custom-live-zone" static=True format="{x} adults" %}
 </form>
 """
         expected = """
@@ -827,6 +851,7 @@ class FormItemTest(SimpleTestCase):
       </button>
 
       <input
+        name="number"
         type="number"
         inputmode="numeric"
         class="nj-form-item__field"
@@ -846,9 +871,8 @@ class FormItemTest(SimpleTestCase):
     </div>
   </div>
 
-  <!-- STEP -->
   <h2>With <code>step</code> and <code>max</code> attributes</h2>
-  <div class="nj-form-item nj-form-item--static nj-form-item--input-number">
+  <div class="nj-form-item nj-form-item--input-number nj-form-item--static">
     <div class="nj-form-item__field-wrapper" role="group" aria-labelledby="input-number-static">
       <button class="nj-icon-btn nj-icon-btn--secondary nj-form-item__decrement-button" type="button">
         <span aria-hidden="true" class="nj-icon-btn__icon material-icons">remove</span>
@@ -856,11 +880,12 @@ class FormItemTest(SimpleTestCase):
       </button>
 
       <input
+        name="number"
         type="number"
         inputmode="numeric"
         class="nj-form-item__field"
         id="input-number-static"
-        value="1.4"
+        value="0"
         step="0.3"
         max="3"
       >
@@ -877,21 +902,22 @@ class FormItemTest(SimpleTestCase):
 
   <h2>With hint and error</h2>
   <div style="display: flex; flex-direction: column; gap: 16px;">
-    <!-- HINT -->
     <div class="nj-form-item nj-form-item--input-number">
-      <div class="nj-form-item__field-wrapper" role="group" aria-labelledby="input-number-hint input-number-hint-id">
+      <div class="nj-form-item__field-wrapper" role="group" aria-labelledby="input-number-hint input-number-hint-hint">
         <button class="nj-icon-btn nj-icon-btn--secondary nj-form-item__decrement-button" type="button">
           <span aria-hidden="true" class="nj-icon-btn__icon material-icons">remove</span>
           <span class="nj-sr-only">- Decrement</span>
         </button>
 
         <input
+          name="number_help"
           type="number"
           inputmode="numeric"
           class="nj-form-item__field"
           id="input-number-hint"
-          aria-describedby="input-number-hint-id"
-          value="123"
+          aria-controls="input-number-hint-hint"
+          aria-describedby="input-number-hint-hint"
+          value="1"
         >
         <label for="input-number-hint" class="nj-form-item__label">Amount</label>
 
@@ -903,25 +929,28 @@ class FormItemTest(SimpleTestCase):
         <div aria-live="polite" aria-atomic="true" class="nj-sr-only"></div>
       </div>
 
-      <p id="input-number-hint-id" class="nj-form-item__subscript">
-        Optional helper text
+      <p id="input-number-hint-hint" class="nj-form-item__subscript">
+        Optional helper text here; if message is more than one line text should wrap (~100 character count maximum)
       </p>
     </div>
 
-    <!-- ERROR -->
     <div class="nj-form-item nj-form-item--error nj-form-item--input-number">
-      <div class="nj-form-item__field-wrapper" role="group" aria-labelledby="input-number-error input-number-error-id">
+      <div class="nj-form-item__field-wrapper" role="group" aria-labelledby="input-number-error input-number-error-error">
         <button class="nj-icon-btn nj-icon-btn--secondary nj-form-item__decrement-button" type="button">
           <span aria-hidden="true" class="nj-icon-btn__icon material-icons">remove</span>
           <span class="nj-sr-only">- Decrement</span>
         </button>
 
         <input
+          name="number_invalid"
+          value="a"
           type="number"
           inputmode="numeric"
           class="nj-form-item__field"
           id="input-number-error"
-          aria-describedby="input-number-error-id"
+          aria-describedby="input-number-error-error"
+          aria-controls="input-number-error-error"
+          aria-invalid="true"
         >
         <label for="input-number-error" class="nj-form-item__label">Amount</label>
 
@@ -933,17 +962,16 @@ class FormItemTest(SimpleTestCase):
         <div aria-live="polite" aria-atomic="true" class="nj-sr-only"></div>
       </div>
 
-      <p id="input-number-error-id" class="nj-form-item__subscript">
+      <p id="input-number-error-error" class="nj-form-item__subscript">
         <span aria-hidden="true" class="nj-form-item__subscript-icon material-icons">warning</span>
-        Error text
+        Enter a whole number.
       </p>
     </div>
   </div>
 
   <h2>With <code>disabled</code> and <code>readonly</code> attributes</h2>
   <div style="display: flex; flex-direction: column; gap: 16px;">
-    <!-- DISABLED -->
-    <div class="nj-form-item nj-form-item--static nj-form-item--disabled nj-form-item--input-number">
+    <div class="nj-form-item nj-form-item--input-number nj-form-item--static nj-form-item--disabled">
       <div class="nj-form-item__field-wrapper" role="group" aria-labelledby="input-number-disabled">
         <button class="nj-icon-btn nj-icon-btn--secondary nj-form-item__decrement-button" type="button" disabled>
           <span aria-hidden="true" class="nj-icon-btn__icon material-icons">remove</span>
@@ -951,6 +979,7 @@ class FormItemTest(SimpleTestCase):
         </button>
 
         <input
+          name="number"
           type="number"
           inputmode="numeric"
           class="nj-form-item__field"
@@ -969,7 +998,6 @@ class FormItemTest(SimpleTestCase):
       </div>
     </div>
 
-    <!-- READONLY -->
     <div class="nj-form-item nj-form-item--input-number">
       <div class="nj-form-item__field-wrapper" role="group" aria-labelledby="input-number-readonly">
         <button class="nj-icon-btn nj-icon-btn--secondary nj-form-item__decrement-button" type="button" disabled>
@@ -978,11 +1006,12 @@ class FormItemTest(SimpleTestCase):
         </button>
 
         <input
+          name="number"
           type="number"
           inputmode="numeric"
           class="nj-form-item__field"
           id="input-number-readonly"
-          value="90"
+          value="0"
           readonly
         >
         <label for="input-number-readonly" class="nj-form-item__label">Amount</label>
@@ -999,8 +1028,7 @@ class FormItemTest(SimpleTestCase):
 
   <h2>With different sizes</h2>
   <div style="display: flex; flex-direction: column; gap: 16px;">
-    <!-- SIZE: SM -->
-    <div class="nj-form-item nj-form-item--sm nj-form-item--input-number">
+    <div class="nj-form-item nj-form-item--input-number nj-form-item--sm">
       <div class="nj-form-item__field-wrapper" role="group" aria-labelledby="input-number-size-sm">
         <button class="nj-icon-btn nj-icon-btn--secondary nj-form-item__decrement-button" type="button">
           <span aria-hidden="true" class="nj-icon-btn__icon material-icons">remove</span>
@@ -1008,6 +1036,7 @@ class FormItemTest(SimpleTestCase):
         </button>
 
         <input
+          name="number"
           type="number"
           inputmode="numeric"
           class="nj-form-item__field"
@@ -1025,8 +1054,7 @@ class FormItemTest(SimpleTestCase):
       </div>
     </div>
 
-    <!-- SIZE: LG -->
-    <div class="nj-form-item nj-form-item--lg nj-form-item--input-number">
+    <div class="nj-form-item nj-form-item--input-number nj-form-item--lg">
       <div class="nj-form-item__field-wrapper" role="group" aria-labelledby="input-number-size-lg">
         <button class="nj-icon-btn nj-icon-btn--secondary nj-form-item__decrement-button" type="button">
           <span aria-hidden="true" class="nj-icon-btn__icon material-icons">remove</span>
@@ -1034,10 +1062,12 @@ class FormItemTest(SimpleTestCase):
         </button>
 
         <input
+          name="number"
           type="number"
           inputmode="numeric"
           class="nj-form-item__field"
           id="input-number-size-lg"
+          value="0"
         >
         <label for="input-number-size-lg" class="nj-form-item__label">Amount</label>
 
@@ -1050,8 +1080,7 @@ class FormItemTest(SimpleTestCase):
       </div>
     </div>
 
-    <!-- SIZE: XL -->
-    <div class="nj-form-item nj-form-item--static nj-form-item--xl nj-form-item--input-number">
+    <div class="nj-form-item nj-form-item--input-number nj-form-item--static nj-form-item--xl">
       <div class="nj-form-item__field-wrapper" role="group" aria-labelledby="input-number-size-xl">
         <button class="nj-icon-btn nj-icon-btn--secondary nj-form-item__decrement-button" type="button">
           <span aria-hidden="true" class="nj-icon-btn__icon material-icons">remove</span>
@@ -1059,6 +1088,7 @@ class FormItemTest(SimpleTestCase):
         </button>
 
         <input
+          name="number"
           type="number"
           inputmode="numeric"
           class="nj-form-item__field"
@@ -1077,9 +1107,8 @@ class FormItemTest(SimpleTestCase):
     </div>
   </div>
 
-  <!-- CUSTOM LIVE ZONE FORMAT -->
   <h2>With custom live zone format</h2>
-  <div class="nj-form-item nj-form-item--static nj-form-item--input-number" data-live-zone-format="{x} adults">
+  <div class="nj-form-item nj-form-item--input-number nj-form-item--static" data-live-zone-format="{x} adults">
     <div class="nj-form-item__field-wrapper" role="group" aria-labelledby="input-number-custom-live-zone">
       <button class="nj-icon-btn nj-icon-btn--secondary nj-form-item__decrement-button" type="button">
         <span aria-hidden="true" class="nj-icon-btn__icon material-icons">remove</span>
@@ -1087,6 +1116,7 @@ class FormItemTest(SimpleTestCase):
       </button>
 
       <input
+        name="number"
         type="number"
         inputmode="numeric"
         class="nj-form-item__field"

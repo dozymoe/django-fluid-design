@@ -9,7 +9,8 @@ class DummyForm(forms.Form):
     text_help = forms.CharField(required=False,
             help_text="Must be x character long")
 
-    number = forms.IntegerField()
+    number = forms.IntegerField(required=False)
+    number_must = forms.IntegerField()
     number_empty = forms.IntegerField(required=False)
     number_help = forms.IntegerField(required=False,
             label="Number input label",

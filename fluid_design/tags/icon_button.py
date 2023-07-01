@@ -13,13 +13,13 @@ class IconButton(Node):
     "Template Tag needs closing end tag."
     SLOTS = ('icon',)
     "Named children."
-    NODE_PROPS = ('disabled', 'variant', 'size', 'inversed')
+    NODE_PROPS = ('disabled', 'style', 'size')
     "Extended Template Tag arguments."
     DEFAULT_TAG = 'button'
     "Rendered HTML tag."
-    POSSIBLE_VARIANTS = ('primary', 'secondary', 'tertiary', 'brand',
-            'destructive')
-    "Possible values for variant argument."
+    POSSIBLE_STYLES = ('primary', 'secondary', 'tertiary', 'brand',
+            'destructive', 'inverse')
+    "Possible values for style argument."
     POSSIBLE_SIZES = ('xs', 'sm', 'lg')
     "Possible values for size argument."
 
@@ -29,12 +29,9 @@ class IconButton(Node):
         if self.eval(self.kwargs.get('disabled'), context):
             values['props'].append(('disabled', ''))
 
-        variant = self.eval(self.kwargs.get('variant'), context)
-        if variant in self.POSSIBLE_VARIANTS[1:]:
-            values['class'].append(f'nj-icon-btn--{variant}')
-
-        if self.eval(self.kwargs.get('inversed'), context):
-            values['class'].append('nj-icon-btn--inverse')
+        style = self.eval(self.kwargs.get('style'), context)
+        if style in self.POSSIBLE_STYLES[1:]:
+            values['class'].append(f'nj-icon-btn--{style}')
 
         size = self.eval(self.kwargs.get('size'), context)
         if size in self.POSSIBLE_SIZES:

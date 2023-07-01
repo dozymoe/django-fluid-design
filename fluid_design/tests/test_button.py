@@ -76,11 +76,11 @@ class ButtonTest(SimpleTestCase):
     def test_inverse(self):
         template = """
 {% load fluid_design %}
-{% Button type="button" inversed=True %}Bold{% endButton %}
-{% Button type="button" inversed=True variant="subtle" %}
+{% Button type="button" style="inverse" %}Bold{% endButton %}
+{% Button type="button" style="inverse" variant="subtle" %}
   Subtle
 {% endButton %}
-{% Button type="button" inversed=True variant="minimal" %}
+{% Button type="button" style="inverse" variant="minimal" %}
   Minimal
 {% endButton %}
 """
@@ -223,7 +223,7 @@ class ButtonTest(SimpleTestCase):
 </div>
 <div class="my-3" style="background-color: var(--nj-color-palette-ultramarine-800)">
   <div class="p-2 story-btn-row">
-    {% Button type="button" inversed=True %}
+    {% Button type="button" style="inverse" %}
       Button
       {% Slot 'icon' %}
         <span aria-hidden="true"
@@ -232,7 +232,7 @@ class ButtonTest(SimpleTestCase):
         </span>
       {% endSlot %}
     {% endButton %}
-    {% Button type="button" inversed=True variant="subtle" %}
+    {% Button type="button" style="inverse" variant="subtle" %}
       Button
       {% Slot 'icon' %}
         <span aria-hidden="true"
@@ -241,7 +241,7 @@ class ButtonTest(SimpleTestCase):
         </span>
       {% endSlot %}
     {% endButton %}
-    {% Button type="button" inversed=True variant="minimal" %}
+    {% Button type="button" style="inverse" variant="minimal" %}
       Button
       {% Slot 'icon' %}
         <span aria-hidden="true"
@@ -400,7 +400,7 @@ class ButtonTest(SimpleTestCase):
 </div>
 <div class="my-3" style="background-color: var(--nj-color-palette-ultramarine-800)">
   <div class="p-2 story-btn-row">
-    {% Button type="button" inversed=True %}
+    {% Button type="button" style="inverse" %}
       {% Slot 'icon' %}
         <span aria-hidden="true"
             class="nj-btn__icon nj-btn__icon--before material-icons">
@@ -408,7 +408,7 @@ class ButtonTest(SimpleTestCase):
         </span>
       {% endSlot %}
     {% endButton %}
-    {% Button type="button" inversed=True variant="subtle" %}
+    {% Button type="button" style="inverse" variant="subtle" %}
       {% Slot 'icon' %}
         <span aria-hidden="true"
             class="nj-btn__icon nj-btn__icon--before material-icons">
@@ -416,7 +416,7 @@ class ButtonTest(SimpleTestCase):
         </span>
       {% endSlot %}
     {% endButton %}
-    {% Button type="button" inversed=True variant="minimal" %}
+    {% Button type="button" style="inverse" variant="minimal" %}
       {% Slot 'icon' %}
         <span aria-hidden="true"
             class="nj-btn__icon nj-btn__icon--before material-icons">

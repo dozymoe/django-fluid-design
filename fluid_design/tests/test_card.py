@@ -115,9 +115,9 @@ class CardTest(SimpleTestCase):
         similique suscipit voluptas.</p>
 
         <div class="mb-2">
-          {% Tag style="brand" %}#p{% endTag %}
-          {% Tag style="green" %}#p{% endTag %}
-          {% Tag style="pink" %}#p{% endTag %}
+          {% Tag color="brand" %}#p{% endTag %}
+          {% Tag color="green" %}#p{% endTag %}
+          {% Tag color="pink" %}#p{% endTag %}
         </div>
         {% Button size="sm" %}Small button{% endButton%}
 
@@ -191,8 +191,8 @@ class CardTest(SimpleTestCase):
 <div class="mb-4">
   {% Card variant="horizontal" %}
     <div class="mb-2">
-      {% Tag style="brand" %}tag{% endTag %}
-      {% Tag style="green" %}tag{% endTag %}
+      {% Tag color="brand" %}tag{% endTag %}
+      {% Tag color="green" %}tag{% endTag %}
     </div>
 
     {% Slot 'subtitle' %}
@@ -209,8 +209,8 @@ class CardTest(SimpleTestCase):
 <div class="mb-4">
   {% Card astag="a" href="#" variant="horizontal" %}
     <div class="mb-2">
-      {% Tag style="brand" %}tag{% endTag %}
-      {% Tag style="green" %}tag{% endTag %}
+      {% Tag color="brand" %}tag{% endTag %}
+      {% Tag color="green" %}tag{% endTag %}
     </div>
 
     {% Slot 'subtitle' %}
@@ -486,10 +486,10 @@ class CardTest(SimpleTestCase):
       perferendis, sed tenetur! Cumque magnam qui quis, sequi similique
       suscipit voluptas.</p>
 
-      {% Tag style="brand" %}tag{% endTag %}
-      {% Tag style="green" %}tag{% endTag %}
-      {% Tag mode="anchor" href="#" style="purple" %}tag{% endTag %}
-      {% Tag mode="anchor" href="#" style="orange" %}tag{% endTag %}
+      {% Tag color="brand" %}tag{% endTag %}
+      {% Tag color="green" %}tag{% endTag %}
+      {% Tag mode="anchor" href="#" color="purple" %}tag{% endTag %}
+      {% Tag mode="anchor" href="#" color="orange" %}tag{% endTag %}
 
       {% Slot 'image' %}
         {% CardImage src="https://design.engie.com/assets/img/img-generic.jpg" alt="" %}
@@ -535,10 +535,10 @@ class CardTest(SimpleTestCase):
       perferendis, sed tenetur! Cumque magnam qui quis, sequi similique
       suscipit voluptas.</p>
 
-      {% Tag style="brand" %}tag{% endTag %}
-      {% Tag style="green" %}tag{% endTag %}
-      {% Tag mode="anchor" href="#" style="purple" %}tag{% endTag %}
-      {% Tag mode="anchor" href="#" style="orange" %}tag{% endTag %}
+      {% Tag color="brand" %}tag{% endTag %}
+      {% Tag color="green" %}tag{% endTag %}
+      {% Tag mode="anchor" href="#" color="purple" %}tag{% endTag %}
+      {% Tag mode="anchor" href="#" color="orange" %}tag{% endTag %}
 
       {% Slot 'image' %}
         {% CardImage src="https://design.engie.com/assets/img/img-generic.jpg" alt="" %}
@@ -578,10 +578,10 @@ class CardTest(SimpleTestCase):
       consequuntur dolorum eius, expedita illo minus molestias natus pariatur
       perferendis.</p>
 
-      {% Tag style="brand" %}tag{% endTag %}
-      {% Tag style="green" %}tag{% endTag %}
-      {% Tag mode="anchor" href="#" style="purple" %}tag{% endTag %}
-      {% Tag mode="anchor" href="#" style="orange" %}tag{% endTag %}
+      {% Tag color="brand" %}tag{% endTag %}
+      {% Tag color="green" %}tag{% endTag %}
+      {% Tag mode="anchor" href="#" color="purple" %}tag{% endTag %}
+      {% Tag mode="anchor" href="#" color="orange" %}tag{% endTag %}
 
       {% Slot 'image' %}
         {% CardImage src="https://design.engie.com/assets/img/img-generic.jpg" alt="" %}
@@ -899,9 +899,9 @@ class CardTest(SimpleTestCase):
         similique suscipit voluptas.</p>
 
         <div class="mb-2">
-          {% Tag style="brand" %}#tag{% endTag %}
-          {% Tag style="green" %}#tag{% endTag %}
-          {% Tag style="pink" %}#tag{% endTag %}
+          {% Tag color="brand" %}#tag{% endTag %}
+          {% Tag color="green" %}#tag{% endTag %}
+          {% Tag color="pink" %}#tag{% endTag %}
         </div>
         {% Button size="sm" %}Small button{% endButton%}
 
@@ -975,8 +975,8 @@ class CardTest(SimpleTestCase):
 <div class="mb-4">
   {% Card variant="horizontal" %}
     <div class="mb-2">
-      {% Tag style="brand" %}tag{% endTag %}
-      {% Tag style="green" %}tag{% endTag %}
+      {% Tag color="brand" %}tag{% endTag %}
+      {% Tag color="green" %}tag{% endTag %}
     </div>
 
     {% Slot 'subtitle' %}
@@ -993,8 +993,8 @@ class CardTest(SimpleTestCase):
 <div class="mb-4">
   {% Card astag="a" href="#" variant="horizontal" %}
     <div class="mb-2">
-      {% Tag style="brand" %}tag{% endTag %}
-      {% Tag style="green" %}tag{% endTag %}
+      {% Tag color="brand" %}tag{% endTag %}
+      {% Tag color="green" %}tag{% endTag %}
     </div>
 
     {% Slot 'subtitle' %}
@@ -1269,10 +1269,10 @@ class CardTest(SimpleTestCase):
       perferendis, sed tenetur! Cumque magnam qui quis, sequi similique
       suscipit voluptas.</p>
 
-      {% Tag style="brand" %}tag{% endTag %}
-      {% Tag style="green" %}tag{% endTag %}
-      {% Tag mode="anchor" href="#" style="purple" %}tag{% endTag %}
-      {% Tag mode="anchor" href="#" style="orange" %}tag{% endTag %}
+      {% Tag color="brand" %}tag{% endTag %}
+      {% Tag color="green" %}tag{% endTag %}
+      {% Tag mode="anchor" href="#" color="purple" %}tag{% endTag %}
+      {% Tag mode="anchor" href="#" color="orange" %}tag{% endTag %}
 
       {% Slot 'image' %}
         {% CardImage src="https://design.engie.com/assets/img/img-generic.jpg" alt="Card image cap" %}
@@ -1318,10 +1318,10 @@ class CardTest(SimpleTestCase):
       perferendis, sed tenetur! Cumque magnam qui quis, sequi similique
       suscipit voluptas.</p>
 
-      {% Tag style="brand" %}tag{% endTag %}
-      {% Tag style="green" %}tag{% endTag %}
-      {% Tag mode="anchor" href="#" style="purple" %}tag{% endTag %}
-      {% Tag mode="anchor" href="#" style="orange" %}tag{% endTag %}
+      {% Tag color="brand" %}tag{% endTag %}
+      {% Tag color="green" %}tag{% endTag %}
+      {% Tag mode="anchor" href="#" color="purple" %}tag{% endTag %}
+      {% Tag mode="anchor" href="#" color="orange" %}tag{% endTag %}
 
       {% Slot 'image' %}
         {% CardImage src="https://design.engie.com/assets/img/img-generic.jpg" alt="Card image cap" %}
@@ -1361,10 +1361,10 @@ class CardTest(SimpleTestCase):
       consequuntur dolorum eius, expedita illo minus molestias natus pariatur
       perferendis.</p>
 
-      {% Tag style="brand" %}tag{% endTag %}
-      {% Tag style="green" %}tag{% endTag %}
-      {% Tag mode="anchor" href="#" style="purple" %}tag{% endTag %}
-      {% Tag mode="anchor" href="#" style="orange" %}tag{% endTag %}
+      {% Tag color="brand" %}tag{% endTag %}
+      {% Tag color="green" %}tag{% endTag %}
+      {% Tag mode="anchor" href="#" color="purple" %}tag{% endTag %}
+      {% Tag mode="anchor" href="#" color="orange" %}tag{% endTag %}
 
       {% Slot 'image' %}
         {% CardImage src="https://design.engie.com/assets/img/img-generic.jpg" alt="Card image cap" %}

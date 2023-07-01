@@ -223,20 +223,71 @@ class Textarea(TextInput):
         return self.format(template, values, context)
 
 
-class NumberInput(TextInput):
+class NumberInput(FormNode):
     """Form number item component
     """
+    NODE_PROPS = ('static', 'size', 'format')
+    "Extended Template Tag arguments."
+    CLASS_AND_PROPS = ('label', 'help', 'wrapper', 'button')
+    "Prepare xxx_class and xxx_props values."
+    POSSIBLE_SIZES = ('sm', 'lg', 'xl')
+    "Possible values for size argument."
+
+    def prepare(self, values, context):
+        """Prepare values for rendering the templates.
+        """
+        values['txt_decr'] = _("- Decrement")
+        values['txt_incr'] = _("+ Increment")
+
+        if self.eval(self.kwargs.get('static'), context):
+            values['wrapper_class'].append('nj-form-item--static')
+
+        if self.bound_field.errors:
+            values['group_labelled_by'] = '{id} {id}-error'.format(
+                    id=values['id'])
+        elif self.bound_field.help_text:
+            values['group_labelled_by'] = '{id} {id}-hint'.format(
+                    id=values['id'])
+        else:
+            values['group_labelled_by'] = values['id']
+
+        if self.eval(self.kwargs.get('disabled'), context):
+            values['wrapper_class'].append('nj-form-item--disabled')
+            values['button_props'].append(('disabled', True))
+
+        if self.eval(self.kwargs.get('readonly'), context):
+            values['button_props'].append(('disabled', True))
+
+        size = self.eval(self.kwargs.get('size'), context)
+        if size in self.POSSIBLE_SIZES:
+            values['wrapper_class'].append(f'nj-form-item--{size}')
+
+        fmt = self.eval(self.kwargs.get('format'), context)
+        if fmt:
+            values['wrapper_props'].append(('data-live-zone-format', fmt))
+
+
+    def prepare_element_props(self, props, context):
+        """Prepare html attributes for rendering the form element.
+        """
+        props['class'].append('nj-form-item__field')
+        props['inputmode'] = 'numeric'
+
+
     def render_default(self, values, context):
         """Html output of the component
         """
         if self.bound_field.errors:
             template = """
-<div class="nj-form-item nj-form-item--textarea nj-form-item--error {wrapper_class}"
+<div class="nj-form-item nj-form-item--error nj-form-item--input-number {wrapper_class}"
     {wrapper_props}>
-  <div class="nj-form-item__field-wrapper">
+  <div aria-labelledby="{group_labelled_by}" class="nj-form-item__field-wrapper"
+      role="group">
+    {tmpl_decr}
     {tmpl_element}
     {tmpl_label}
-    {slot_icon}
+    {tmpl_incr}
+    <div aria-atomic="true" aria-live="polite" class="nj-sr-only"></div>
   </div>
   {tmpl_help}
   {tmpl_errors}
@@ -244,17 +295,52 @@ class NumberInput(TextInput):
 """
         else:
             template = """
-<div class="nj-form-item nj-form-item--textarea {wrapper_class}"
+<div class="nj-form-item nj-form-item--input-number {wrapper_class}"
     {wrapper_props}>
-  <div class="nj-form-item__field-wrapper">
+  <div aria-labelledby="{group_labelled_by}" class="nj-form-item__field-wrapper"
+      role="group">
+    {tmpl_decr}
     {tmpl_element}
     {tmpl_label}
-    {slot_icon}
+    {tmpl_incr}
+    <div aria-atomic="true" aria-live="polite" class="nj-sr-only"></div>
   </div>
   {tmpl_help}
 </div>
 """
         return self.format(template, values, context)
+
+
+    def render_tmpl_decr(self, values, context):
+        """Dynamically render a part of the component's template
+        """
+        template = """
+<button type="button"
+    class="nj-icon-btn nj-icon-btn--secondary nj-form-item__decrement-button {button_class}"
+    {button_props}>
+  <span aria-hidden="true" class="nj-icon-btn__icon material-icons">
+    remove
+  </span>
+  <span class="nj-sr-only">{txt_decr}</span>
+</button>
+"""
+        return self.format(template, values)
+
+
+    def render_tmpl_incr(self, values, context):
+        """Dynamically render a part of the component's template
+        """
+        template = """
+<button type="button"
+    class="nj-icon-btn nj-icon-btn--secondary nj-form-item__increment-button {button_class}"
+    {button_props}>
+  <span aria-hidden="true" class="nj-icon-btn__icon material-icons">
+    add
+  </span>
+  <span class="nj-sr-only">{txt_incr}</span>
+</button>
+"""
+        return self.format(template, values)
 
 
 components = {

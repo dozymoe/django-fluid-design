@@ -23,12 +23,12 @@ class Tag(Node):
     "Named children."
     MODES = ('default', 'anchor')
     "Available variants."
-    NODE_PROPS = ('delete', 'disabled', 'href', 'size', 'style', 'inversed')
+    NODE_PROPS = ('delete', 'disabled', 'href', 'size', 'color', 'inversed')
     "Extended Template Tag arguments."
     POSSIBLE_SIZES = ('sm', 'lg')
     "Possible values for size argument."
-    POSSIBLE_STYLES = [*COLORS]
-    "Possible values for style argument."
+    POSSIBLE_COLORS = COLORS
+    "Possible values for color argument."
     CLASS_AND_PROPS = ('child', 'button')
     "Prepare xxx_class and xxx_props values."
 
@@ -41,9 +41,9 @@ class Tag(Node):
         if size in self.POSSIBLE_SIZES:
             values['class'].append(f'nj-tag--{size}')
 
-        style = self.eval(self.kwargs.get('style'), context)
-        if style in self.POSSIBLE_STYLES:
-            values['class'].append(f'nj-tag--{style}')
+        color = self.eval(self.kwargs.get('color'), context)
+        if color in self.POSSIBLE_COLORS:
+            values['class'].append(f'nj-tag--{color}')
 
         href = self.eval(self.kwargs.get('href'), context)
         disabled =  self.eval(self.kwargs.get('disabled'), context)
