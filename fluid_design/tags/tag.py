@@ -32,6 +32,10 @@ class Tag(Node):
     CLASS_AND_PROPS = ('child', 'button')
     "Prepare xxx_class and xxx_props values."
 
+    # Parent Tags can set the arguments of their children Tags, in effect
+    # changing their appearance.
+    CATCH_PROPS = ('tag_kwargs',)
+
     def prepare(self, values, context):
         """Prepare values for rendering the templates
         """

@@ -23,6 +23,10 @@ class Icon(Node):
     POSSIBLE_SIZES = ('sm', 'lg', 'xl', 'xxl')
     "Possible values for size argument."
 
+    # Parent Tags can set the arguments of their children Tags, in effect
+    # changing their appearance.
+    CATCH_PROPS = ('icon_kwargs',)
+
     def prepare(self, values, context):
         """Prepare values for rendering the templates
         """

@@ -154,7 +154,7 @@ class Slot(template.Node):
         """
         props = []
         for key, val in self.kwargs.items():
-            if key in ('astag', 'class', 'label'):
+            if key in ('astag', 'class', 'label', 'parser'):
                 continue
             props.append((key, var_eval(val, context)))
         # Ignore properties with falsy value except empty string.
@@ -194,8 +194,11 @@ class Node(template.Node):
     context = None
     mode = None
     _id = None
+    # Parent parser that was used to render this Node, when our template needs
+    # Django templatetags we will clone the parser instance.
+    parser = None
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, parser=None, **kwargs):
         if self.WANT_CHILDREN:
             self.args = args[1:]
 
@@ -210,6 +213,7 @@ class Node(template.Node):
             self.slots = {}
 
         self.kwargs = kwargs
+        self.parser = parser
 
 
     def render(self, context):
@@ -222,9 +226,9 @@ class Node(template.Node):
         myslot = context.get('slot')
         for drop in self.CATCH_PROPS:
             if drop in context:
-                self.kwargs.update(context[drop])
+                self._update_kwargs(context[drop])
             if myslot and f'{myslot}_{drop}' in context:
-                self.kwargs.update(context[f'{myslot}_{drop}'])
+                self._update_kwargs(context[f'{myslot}_{drop}'])
 
         for prop in self.REQUIRED_PROPS:
             if prop not in self.kwargs:
@@ -295,15 +299,16 @@ class Node(template.Node):
 
         slot = self.slots.get(name)
         if slot:
+            # Create slot local context.
+            context.push({'slot': name})
+
             method = getattr(self, f'render_slot_{name}', None)
             if method:
-                slot_values = values.get(f'slot_{name}_values', {})
+                slot_values = values[f'{name}_values']
 
                 # Process values set in self.before_prepare_slots()
                 self.after_prepare_class_props(name, values, context)
 
-                # Create slot local context.
-                context.push({'slot': name})
                 slots[slot_name] = method(
                         {
                             # Use context to tell slot's children in which slot
@@ -319,10 +324,11 @@ class Node(template.Node):
                             **slot_values,
                         },
                         context)
-                # Destroy slot local context.
-                context.pop()
             else:
                 slots[slot_name] = slot.render(context)
+
+            # Destroy slot local context.
+            context.pop()
         else:
             slots[slot_name] = ''
 
@@ -452,7 +458,7 @@ class Node(template.Node):
         return var_eval(value, context)
 
 
-    def format(self, tpl, values, context=None):
+    def format(self, tpl, values, context=None, is_template=False):
         """Apply the prepared values to the templates.
         """
         if context:
@@ -465,11 +471,23 @@ class Node(template.Node):
                 tpl = tpl.format_map(IgnoreMissing(slots))
 
         try:
-            return tpl.format_map(IgnoreMissing(values))
+            result = tpl.format_map(IgnoreMissing(values))
         except ValueError:
             _logger.exception("Trying to render template:\n%s\nwith %s", tpl,
                     values)
             return ''
+
+        if is_template:
+            # We are hacking Django template engine
+            tokens = template.base.Lexer(result).tokenize()
+            # Trying to clone parser
+            parser = template.base.Parser(tokens, origin=self.parser.origin)
+            parser.libraries = self.parser.libraries
+            parser.tags = self.parser.tags
+            parser.filters = self.parser.filters
+            # Render to string
+            result = parser.parse().render(context)
+        return result
 
 
     def set_child_props(self, context, name, slot=None, **kwargs):
@@ -479,6 +497,16 @@ class Node(template.Node):
             name = f'{slot}_{name}'
         context.setdefault(name, {})
         context[name].update(kwargs)
+
+
+    def _update_kwargs(self, values):
+        """Update self.kwargs from data sent by parent components
+        """
+        for key, val in values.items():
+            if key == 'class' and key in self.kwargs:
+                self.kwargs[key] += f' {val}'
+            else:
+                self.kwargs[key] = val
 
 
 class FormNode(Node):
@@ -670,123 +698,6 @@ class FormNode(Node):
 """
         message = '. '.join(self.bound_field.errors).replace('..', '.')
         return tmpl.format(id=values['id'], child=message)
-
-
-class FormNodes(Node):
-    """Base class for tags with multiple form fields.
-
-    The arguments to the tag are all Django form fields.
-    """
-    BASE_NODE_PROPS = ('widget', 'hidden', 'disabled', *Node.BASE_NODE_PROPS)
-    "Base Template Tag arguments."
-
-    bound_fields = None
-
-    def before_prepare(self, values, context):
-        """Initialize the values meant for rendering templates.
-        """
-        self.bound_fields = [var_eval(x, context) for x in self.args]
-        for ii, field in enumerate(self.bound_fields):
-            values[f'id_{ii}'] = field.id_for_label
-            values[f'label_{ii}'] = field.label
-        super().before_prepare(values, context)
-
-
-    def prepare_element_props(self, props, context, bound_field):
-        """Prepare html attributes for rendering the form element.
-        """
-
-
-    def tmpl(self, name, values, context, slots):
-        """Render individual templates.
-
-        We don't return values like we do in javascript, not needed.
-        """
-        if isinstance(name, str):
-            method_name = name
-        else:
-            # Trying to facilitate tmpl_label_1 that is used in FormNodes,
-            # where 1 refers to self.bound_fields[1].
-            # In that case the value of name will be ['label_1', 'label']
-            name, method_name = name
-        slot_name = f'tmpl_{name}'
-        if slot_name in slots:
-            return
-
-        method = getattr(self, f'render_tmpl_{method_name}')
-        slots[slot_name] = method(values, context)
-
-
-    def format(self, tpl, values, context=None):
-        """Apply the prepared values to the templates.
-        """
-        # pylint:disable=too-many-nested-blocks
-        if context:
-            # Assume the caller want to tell us there are sub-templates.
-            slots = {}
-            for typ, nam in SLOT_NAME_PATTERN.findall(tpl):
-                tplvalues = values
-                if typ == 'tmpl':
-                    # Trying to facilitate tmpl_label_1 that is used in
-                    # FormNodes, where 1 refers to self.bound_fields[1].
-                    match = TMPL_MULTI_PATTERN.match(nam)
-                    if match:
-                        index = int(match.group('index'))
-                        name = match.group('name')
-                        for ii, field in enumerate(self.bound_fields):
-                            if ii != index:
-                                continue
-                            nam = [nam, name]
-                            tplvalues = values.copy()
-                            tplvalues['_bound_field'] = field
-                            break
-                method = getattr(self, typ)
-                method(nam, tplvalues, context, slots)
-            if slots:
-                tpl = tpl.format_map(IgnoreMissing(slots))
-
-        return tpl.format_map(IgnoreMissing(values))
-
-
-    def render_tmpl_element(self, values, context):
-        """Render django form fields.
-        """
-        bound_field = values['_bound_field']
-
-        attrs = dict(values['props_raw'])
-        attrs['class'] = bound_field.field.widget.attrs.get('class', '').split()
-        if bound_field.help_text or 'help' in self.slots:
-            attrs['aria-controls'] = 'hint-' + values['id']
-            attrs['aria-describedby'] = 'hint-' + values['id']
-
-        self.prepare_element_props(attrs, context, bound_field)
-        attrs['class'] = ' '.join(attrs['class'])
-
-        if var_eval(self.kwargs.get('hidden'), context):
-            return bound_field.as_hidden(attrs=attrs)
-
-        widget = self.eval(self.kwargs.get('widget'), context)
-        if widget == 'input':
-            widget = CustomTextInput(attrs=attrs)
-            return bound_field.as_widget(widget=widget, attrs=attrs)
-        return bound_field.as_widget(attrs=attrs)
-
-
-    def render_tmpl_errors(self, values, context):
-        """Dynamically render a part of the component's template.
-        """
-        tmpl_t = '<div class="bx--form-requirement__title">{title}.</div>'
-        tmpl_s = '<p class="bx--form-requirement__supplement">{supplement}</p>'
-
-        items = []
-        bound_field = values['_bound_field']
-        for error in bound_field.errors:
-            title, supplement = error.split('.', 1)
-            supplement = supplement.strip()
-            items.append(tmpl_t.format(title=title))
-            if supplement:
-                items.append(tmpl_s.format(supplement=supplement.strip()))
-        return '\n'.join(items)
 
 
 class ChoiceSetNode(FormNode):

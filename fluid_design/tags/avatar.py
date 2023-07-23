@@ -1,16 +1,16 @@
 """
 Avatar
+======
 
 See: https://www.engie.design/fluid-design-system/components/avatar/
 
 Avatars are used to display a person's picture or initials. Avatars may help in
 creating an emotional connection to the product and in validating that the
 experience is indeed tailored for the current user.
-""" # pylint:disable=line-too-long
-
+"""
 from django.utils.translation import gettext as _
 #-
-from . base import Node
+from .base import Node
 
 class Avatar(Node):
     """Avatar component

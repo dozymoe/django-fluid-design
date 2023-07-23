@@ -10,14 +10,11 @@ unread notifications for example. Contrary to tags, badges cannot be
 interactive. And multiple badges are not to be used side by side. A number of
 variations are suggested here to help you use accessible badges.
 """
-
 from .base import Node
 
 class Badge(Node):
     """Badge component
     """
-    WANT_CHILDREN = True
-    "Template Tag needs closing end tag."
     NODE_PROPS = ('variant', 'style', 'uppercase', 'size')
     "Extended Template Tag arguments."
     DEFAULT_TAG = 'p'
@@ -29,6 +26,10 @@ class Badge(Node):
     "Possible values for style argument."
     POSSIBLE_SIZES = ('xs', 'sm', 'lg')
     "Possible values for size argument."
+
+    # Parent Tags can set the arguments of their children Tags, in effect
+    # changing their appearance.
+    CATCH_PROPS = ('badge_kwargs',)
 
     def prepare(self, values, context):
         """Prepare values for rendering the templates
@@ -54,7 +55,7 @@ class Badge(Node):
         """
         template = """
 <{astag} class="nj-badge {class}" {props}>
-  {child}
+  {label}
 </{astag}>
 """
         return self.format(template, values, context)

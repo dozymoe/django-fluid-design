@@ -7,7 +7,7 @@ class BadgeTest(SimpleTestCase):
     def test_vanilla(self):
         template = """
 {% load fluid_design %}
-{% Badge %}{% endBadge %}
+{% Badge %}
 """
         expected = """
 <p class="nj-badge"></p>
@@ -21,79 +21,43 @@ class BadgeTest(SimpleTestCase):
 {% load fluid_design %}
 <div style="display: flex; flex-direction: column; align-items: flex-start; flex-wrap: wrap; gap: 16px; padding: 24px;">
   <h4>Bold</h4>
-  {% Badge %}7{% endBadge %}
-  {% Badge %}75{% endBadge %}
-  {% Badge %}75+{% endBadge %}
+  {% Badge label="7" %}
+  {% Badge label="75" %}
+  {% Badge label="75+" %}
   <hr>
   <h4>Subtle</h4>
-  {% Badge variant="subtle" %}7{% endBadge %}
-  {% Badge variant="subtle" %}75{% endBadge %}
-  {% Badge variant="subtle" %}75+{% endBadge %}
+  {% Badge variant="subtle" label="7" %}
+  {% Badge variant="subtle" label="75" %}
+  {% Badge variant="subtle" label="75+" %}
   <hr>
   <h4>Minimal</h4>
-  {% Badge variant="minimal" %}7{% endBadge %}
-  {% Badge variant="minimal" %}75{% endBadge %}
-  {% Badge variant="minimal" %}75+{% endBadge %}
+  {% Badge variant="minimal" label="7" %}
+  {% Badge variant="minimal" label="75" %}
+  {% Badge variant="minimal" label="75+" %}
   <hr>
   <h4>Bold color variants</h4>
-  {% Badge uppercase=True %}
-    Information, in progress
-  {% endBadge %}
-  {% Badge uppercase=True style="danger" %}
-    Danger
-  {% endBadge %}
-  {% Badge uppercase=True style="warning" %}
-    Warning
-  {% endBadge %}
-  {% Badge uppercase=True style="success" %}
-    Success
-  {% endBadge %}
-  {% Badge uppercase=True style="information" %}
-    Information
-  {% endBadge %}
-  {% Badge uppercase=True style="discovery" %}
-    Discovery
-  {% endBadge %}
+  {% Badge uppercase=True label="Information, in progress" %}
+  {% Badge uppercase=True style="danger" label="Danger" %}
+  {% Badge uppercase=True style="warning" label="Warning" %}
+  {% Badge uppercase=True style="success" label="Success" %}
+  {% Badge uppercase=True style="information" label="Information" %}
+  {% Badge uppercase=True style="discovery" label="Discovery" %}
   <hr>
   <h4>Subtle color variants</h4>
-  {% Badge uppercase=True variant="subtle" %}
-    Information, in progress
-  {% endBadge %}
-  {% Badge uppercase=True variant="subtle" style="danger" %}
-    Danger
-  {% endBadge %}
-  {% Badge uppercase=True variant="subtle" style="warning" %}
-    Warning
-  {% endBadge %}
-  {% Badge uppercase=True variant="subtle" style="success" %}
-    Success
-  {% endBadge %}
-  {% Badge uppercase=True variant="subtle" style="information" %}
-    Information
-  {% endBadge %}
-  {% Badge uppercase=True variant="subtle" style="discovery" %}
-    Discovery
-  {% endBadge %}
+  {% Badge uppercase=True variant="subtle" label="Information, in progress" %}
+  {% Badge uppercase=True variant="subtle" style="danger" label="Danger" %}
+  {% Badge uppercase=True variant="subtle" style="warning" label="Warning" %}
+  {% Badge uppercase=True variant="subtle" style="success" label="Success" %}
+  {% Badge uppercase=True variant="subtle" style="information" label="Information" %}
+  {% Badge uppercase=True variant="subtle" style="discovery" label="Discovery" %}
   <hr>
   <h4>Minimal color variants</h4>
-  {% Badge uppercase=True variant="minimal" %}
-    Information, in progress
-  {% endBadge %}
-  {% Badge uppercase=True variant="minimal" style="danger" %}
-    Danger
-  {% endBadge %}
-  {% Badge uppercase=True variant="minimal" style="warning" %}
-    Warning
-  {% endBadge %}
-  {% Badge uppercase=True variant="minimal" style="success" %}
-    Success
-  {% endBadge %}
-  {% Badge uppercase=True variant="minimal" style="information" %}
-    Information
-  {% endBadge %}
-  {% Badge uppercase=True variant="minimal" style="discovery" %}
-    Discovery
-  {% endBadge %}
+  {% Badge uppercase=True variant="minimal" label="Information, in progress" %}
+  {% Badge uppercase=True variant="minimal" style="danger" label="Danger" %}
+  {% Badge uppercase=True variant="minimal" style="warning" label="Warning" %}
+  {% Badge uppercase=True variant="minimal" style="success" label="Success" %}
+  {% Badge uppercase=True variant="minimal" style="information" label="Information" %}
+  {% Badge uppercase=True variant="minimal" style="discovery" label="Discovery" %}
 </div>
 """
         expected = """
@@ -146,15 +110,15 @@ class BadgeTest(SimpleTestCase):
         template = """
 {% load fluid_design %}
 <div style="display: flex; flex-direction: column; align-items: flex-start; flex-wrap: wrap; gap: 16px; padding: 24px;">
-  {% Badge size="lg" %}7{% endBadge %}
-  {% Badge size="lg" %}75{% endBadge %}
-  {% Badge size="lg" %}75+{% endBadge %}
-  {% Badge size="lg" %}Information, in progress{% endBadge %}
-  {% Badge size="lg" style="danger" %}Danger{% endBadge %}
-  {% Badge size="lg" style="warning" %}Warning{% endBadge %}
-  {% Badge size="lg" style="success" %}Success{% endBadge %}
-  {% Badge size="lg" style="information" %}Information{% endBadge %}
-  {% Badge size="lg" style="discovery" %}Discovery{% endBadge %}
+  {% Badge size="lg" label="7" %}
+  {% Badge size="lg" label="75" %}
+  {% Badge size="lg" label="75+" %}
+  {% Badge size="lg" label="Information, in progress" %}
+  {% Badge size="lg" style="danger" label="Danger" %}
+  {% Badge size="lg" style="warning" label="Warning" %}
+  {% Badge size="lg" style="success" label="Success" %}
+  {% Badge size="lg" style="information" label="Information" %}
+  {% Badge size="lg" style="discovery" label="Discovery" %}
 </div>
 """
         expected = """
@@ -178,12 +142,12 @@ class BadgeTest(SimpleTestCase):
         template = """
 {% load fluid_design %}
 <div style="display: flex; flex-direction: column; align-items: flex-start; flex-wrap: wrap; gap: 16px; padding: 24px;">
-  {% Badge variant="subtle" %}Information, in progress{% endBadge %}
-  {% Badge variant="subtle" style="danger" %}Danger{% endBadge %}
-  {% Badge variant="subtle" style="warning" %}Warning{% endBadge %}
-  {% Badge variant="subtle" style="success" %}Success{% endBadge %}
-  {% Badge variant="subtle" style="information" %}Information{% endBadge %}
-  {% Badge variant="subtle" style="discovery" %}Discovery{% endBadge %}
+  {% Badge variant="subtle" label="Information, in progress" %}
+  {% Badge variant="subtle" style="danger" label="Danger" %}
+  {% Badge variant="subtle" style="warning" label="Warning" %}
+  {% Badge variant="subtle" style="success" label="Success" %}
+  {% Badge variant="subtle" style="information" label="Information" %}
+  {% Badge variant="subtle" style="discovery" label="Discovery" %}
 </div>
 """
         expected = """
@@ -204,12 +168,12 @@ class BadgeTest(SimpleTestCase):
         template = """
 {% load fluid_design %}
 <div style="display: flex; flex-direction: column; align-items: flex-start; flex-wrap: wrap; gap: 16px; padding: 24px;">
-  {% Badge variant="minimal" %}Information, in progress{% endBadge %}
-  {% Badge variant="minimal" style="danger" %}Danger{% endBadge %}
-  {% Badge variant="minimal" style="warning" %}Warning{% endBadge %}
-  {% Badge variant="minimal" style="success" %}Success{% endBadge %}
-  {% Badge variant="minimal" style="information" %}Information{% endBadge %}
-  {% Badge variant="minimal" style="discovery" %}Discovery{% endBadge %}
+  {% Badge variant="minimal" label="Information, in progress" %}
+  {% Badge variant="minimal" style="danger" label="Danger" %}
+  {% Badge variant="minimal" style="warning" label="Warning" %}
+  {% Badge variant="minimal" style="success" label="Success" %}
+  {% Badge variant="minimal" style="information" label="Information" %}
+  {% Badge variant="minimal" style="discovery" label="Discovery" %}
 </div>
 """
         expected = """
@@ -229,9 +193,9 @@ class BadgeTest(SimpleTestCase):
     def test_example5(self):
         template = """
 {% load fluid_design %}
-{% Badge %}7{% endBadge %}
-{% Badge %}75{% endBadge %}
-{% Badge %}Neutral badge+{% endBadge %}
+{% Badge label="7" %}
+{% Badge label="75" %}
+{% Badge label="Neutral badge+" %}
 """
         expected = """
 <p class="nj-badge">7</p>
@@ -245,9 +209,9 @@ class BadgeTest(SimpleTestCase):
     def test_example6(self):
         template = """
 {% load fluid_design %}
-{% Badge size="lg" %}7{% endBadge %}
-{% Badge size="lg" %}75{% endBadge %}
-{% Badge size="lg" %}Neutral badge{% endBadge %}
+{% Badge size="lg" label="7" %}
+{% Badge size="lg" label="75" %}
+{% Badge size="lg" label="Neutral badge" %}
 """
         expected = """
 <p class="nj-badge nj-badge--lg">7</p>
@@ -261,9 +225,9 @@ class BadgeTest(SimpleTestCase):
     def test_example7(self):
         template = """
 {% load fluid_design %}
-{% Badge %}Bold badge (default){% endBadge %}
-{% Badge variant="subtle" %}Subtle badge{% endBadge %}
-{% Badge variant="minimal" %}Minimal badge{% endBadge %}
+{% Badge label="Bold badge (default)" %}
+{% Badge variant="subtle" label="Subtle badge" %}
+{% Badge variant="minimal" label="Minimal badge" %}
 """
         expected = """
 <p class="nj-badge">Bold badge (default)</p>
@@ -277,12 +241,12 @@ class BadgeTest(SimpleTestCase):
     def test_example8(self):
         template = """
 {% load fluid_design %}
-{% Badge %}Neutral badge{% endBadge %}
-{% Badge style="information" %}Information badge{% endBadge %}
-{% Badge style="discovery" %}Discovery badge{% endBadge %}
-{% Badge style="success" %}Success badge{% endBadge %}
-{% Badge style="warning" %}Warning badge{% endBadge %}
-{% Badge style="danger" %}Danger badge{% endBadge %}
+{% Badge label="Neutral badge" %}
+{% Badge style="information" label="Information badge" %}
+{% Badge style="discovery" label="Discovery badge" %}
+{% Badge style="success" label="Success badge" %}
+{% Badge style="warning" label="Warning badge" %}
+{% Badge style="danger" label="Danger badge" %}
 """
         expected = """
 <p class="nj-badge">Neutral badge</p>
