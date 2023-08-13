@@ -22,8 +22,9 @@ SLOT_NAME_PATTERN = re.compile(r'{(tmpl|slot)_(\w+)}')
 TMPL_MULTI_PATTERN = re.compile(r'(?P<name>\w+)_(?P<index>\d+)$')
 VARIABLE_IN_ARG = re.compile(r'{{([\w.:|\'"]+)}}')
 
-COLORS = ('brand', 'blue', 'green', 'grey', 'lime', 'orange', 'pink', 'purple',
-        'red', 'teal', 'ultramarine', 'yellow')
+COLORS = ('primary', 'secondary', 'tertiary', 'destructive', 'inverse', 'brand',
+        'blue', 'blue-corporate', 'green', 'grey', 'lime', 'orange', 'pink',
+        'purple', 'red', 'teal', 'ultramarine', 'white', 'yellow')
 
 
 def var_eval(value, context):

@@ -12,12 +12,10 @@ from .base import COLORS, Node
 class Icon(Node):
     """Icon component
     """
-    NODE_PROPS = ('style', 'color', 'size')
+    NODE_PROPS = ('color', 'size')
     "Extended Template Tag arguments."
     DEFAULT_TAG = 'span'
     "Rendered HTML tag."
-    POSSIBLE_STYLES = ('primary', 'secondary', 'inverse')
-    "Possible values for style argument."
     POSSIBLE_COLORS = COLORS
     "Possible values for color argument."
     POSSIBLE_SIZES = ('sm', 'lg', 'xl', 'xxl')
@@ -33,10 +31,6 @@ class Icon(Node):
         size = self.eval(self.kwargs.get('size'), context)
         if size in self.POSSIBLE_SIZES:
             values['class'].append(f'nj-icon-material--{size}')
-
-        style = self.eval(self.kwargs.get('style'), context)
-        if style in self.POSSIBLE_STYLES:
-            values['class'].append(f'nj-icon-material--{style}')
 
         color = self.eval(self.kwargs.get('color'), context)
         if color in self.POSSIBLE_COLORS:

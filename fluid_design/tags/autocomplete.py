@@ -6,8 +6,7 @@ See: https://www.engie.design/fluid-design-system/components/autocomplete/
 
 Autocomplete provides automated assistance to fill in form field values. It
 allows the user to have suggestions while typing in the field.
-""" # pylint:disable=line-too-long
-
+"""
 import json
 #-
 from django.utils.html import escape

@@ -10,7 +10,7 @@ In terms of accessibility, be mindful of people using assistive technologies:
 don’t use links instead of buttons to trigger actions.
 """
 
-from .base import Node
+from .base import COLORS, Node
 
 class Button(Node):
     """Button component
@@ -19,14 +19,14 @@ class Button(Node):
     "Template Tag needs closing end tag."
     SLOTS = ('icon',)
     "Named children."
-    NODE_PROPS = ('disabled', 'variant', 'style', 'size')
+    NODE_PROPS = ('disabled', 'variant', 'color', 'size')
     "Extended Template Tag arguments."
     DEFAULT_TAG = 'button'
     "Rendered HTML tag."
     POSSIBLE_VARIANTS = ('subtle', 'minimal')
     "Possible values for variant argument."
-    POSSIBLE_STYLES = ('secondary', 'destructive', 'inverse')
-    "Possible values for style argument."
+    POSSIBLE_COLORS = COLORS
+    "Possible values for color argument."
     POSSIBLE_SIZES = ('xs', 'sm', 'lg')
     "Possible values for size argument."
 
@@ -40,9 +40,9 @@ class Button(Node):
         if variant in self.POSSIBLE_VARIANTS:
             values['class'].append(f'nj-btn--{variant}')
 
-        style = self.eval(self.kwargs.get('style'), context)
-        if style in self.POSSIBLE_STYLES:
-            values['class'].append(f'nj-btn--{style}')
+        color = self.eval(self.kwargs.get('color'), context)
+        if color in self.POSSIBLE_COLORS:
+            values['class'].append(f'nj-btn--{color}')
 
         size = self.eval(self.kwargs.get('size'), context)
         if size in self.POSSIBLE_SIZES:

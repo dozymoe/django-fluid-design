@@ -41,7 +41,7 @@ class ModalTest(SimpleTestCase):
 {% ModalBtn type="button" modal="#exampleModal" %}
   Info modal
 {% endModalBtn %}
-{% ModalBtn type="button" variant="subtle" style="destructive" modal="#exampleModalDanger" %}
+{% ModalBtn type="button" variant="subtle" color="destructive" modal="#exampleModalDanger" %}
   Danger modal
 {% endModalBtn %}
 {% ModalBtn type="button" modal="#exampleModalAppendTo" %}
@@ -67,10 +67,10 @@ class ModalTest(SimpleTestCase):
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam.</p>
 
   {% Slot 'footer' %}
-    {% ModalCloseBtn type="button" variant="subtle" style="destructive" %}
+    {% ModalCloseBtn type="button" variant="subtle" color="destructive" %}
       Cancel
     {% endModalCloseBtn %}
-    {% Button type="button" style="destructive" %}Delete{% endButton %}
+    {% Button type="button" color="destructive" %}Delete{% endButton %}
   {% endSlot %}
 {% endModal %}
 
@@ -177,7 +177,7 @@ class ModalTest(SimpleTestCase):
 {% ModalBtn type="button" modal="#exampleModalCentered" %}
   Info modal
 {% endModalBtn %}
-{% ModalBtn type="button" variant="subtle" style="destructive" modal="#exampleModalCenteredDanger" %}
+{% ModalBtn type="button" variant="subtle" color="destructive" modal="#exampleModalCenteredDanger" %}
   Danger modal
 {% endModalBtn %}
 
@@ -200,10 +200,10 @@ class ModalTest(SimpleTestCase):
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam.</p>
 
   {% Slot 'footer' %}
-    {% ModalCloseBtn type="button" variant="subtle" style="destructive" %}
+    {% ModalCloseBtn type="button" variant="subtle" color="destructive" %}
       Cancel
     {% endModalCloseBtn %}
-    {% Button type="button" style="destructive" %}Delete{% endButton %}
+    {% Button type="button" color="destructive" %}Delete{% endButton %}
   {% endSlot %}
 {% endModal %}
 """
@@ -271,7 +271,7 @@ class ModalTest(SimpleTestCase):
 {% ModalBtn type="button" modal="#exampleModalCheckbox" %}
   Info modal
 {% endModalBtn %}
-{% ModalBtn type="button" modal="#exampleModalCheckboxDanger" variant="subtle" style="destructive" %}
+{% ModalBtn type="button" modal="#exampleModalCheckboxDanger" variant="subtle" color="destructive" %}
   Info modal
 {% endModalBtn %}
 
@@ -310,10 +310,10 @@ class ModalTest(SimpleTestCase):
         </label>
       </div>
       <div class="d-flex">
-        {% ModalCloseBtn type="button" variant="subtle" style="destructive" %}
+        {% ModalCloseBtn type="button" variant="subtle" color="destructive" %}
           Cancel
         {% endModalCloseBtn %}
-        {% Button type="button" class="ml-1" style="destructive" %}Delete{% endButton %}
+        {% Button type="button" class="ml-1" color="destructive" %}Delete{% endButton %}
       </div>
     </div>
   {% endSlot %}
@@ -401,7 +401,7 @@ class ModalTest(SimpleTestCase):
 {% ModalBtn type="button" modal="#exampleModalIcon" %}
   Info modal
 {% endModalBtn %}
-{% ModalBtn type="button" variant="subtle" style="destructive" modal="#exampleModalIconDanger" %}
+{% ModalBtn type="button" variant="subtle" color="destructive" modal="#exampleModalIconDanger" %}
   Info modal
 {% endModalBtn %}
 
@@ -432,10 +432,10 @@ class ModalTest(SimpleTestCase):
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam.</p>
 
   {% Slot 'footer' %}
-    {% ModalCloseBtn type="button" variant="subtle" style="destructive" %}
+    {% ModalCloseBtn type="button" variant="subtle" color="destructive" %}
       Cancel
     {% endModalCloseBtn %}
-    {% Button type="button" style="destructive" %}Delete{% endButton %}
+    {% Button type="button" color="destructive" %}Delete{% endButton %}
   {% endSlot %}
 
   {% Slot 'icon' %}
@@ -646,7 +646,7 @@ class ModalTest(SimpleTestCase):
     def test_example7(self):
         template = """
 {% load fluid_design %}
-{% ModalBtn type="button" modal="#exampleModalStateError" style="destructive" %}
+{% ModalBtn type="button" modal="#exampleModalStateError" color="destructive" %}
   Error information modal
 {% endModalBtn %}
 {% Modal mode="information" id="exampleModalStateError" fcenter=True %}
@@ -895,7 +895,7 @@ class ModalTest(SimpleTestCase):
 {% ModalBtn type="button" modal="#exampleModal" %}
   Confirmation modal
 {% endModalBtn %}
-{% ModalBtn type="button" modal="#exampleModalDanger" variant="subtle" style="destructive" %}
+{% ModalBtn type="button" modal="#exampleModalDanger" variant="subtle" color="destructive" %}
   Destructive modal
 {% endModalBtn %}
 {% ModalBtn type="button" modal="#exampleModalAppendTo" %}
@@ -919,10 +919,10 @@ class ModalTest(SimpleTestCase):
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam.</p>
 
   {% Slot 'footer' %}
-    {% ModalCloseBtn type="button" variant="subtle" style="destructive" %}
+    {% ModalCloseBtn type="button" variant="subtle" color="destructive" %}
       Cancel
     {% endModalCloseBtn %}
-    {% Button type="button" style="destructive" %}Delete{% endButton %}
+    {% Button type="button" color="destructive" %}Delete{% endButton %}
   {% endSlot %}
 {% endModal  %}
 {% Modal id="exampleModalAppendTo" append_to="body" %}
@@ -1130,7 +1130,7 @@ class ModalTest(SimpleTestCase):
     def test_example15(self):
         template = """
 {% load fluid_design %}
-{% ModalBtn type="button" modal="#exampleModalStateWarning" style="secondary" %}
+{% ModalBtn type="button" modal="#exampleModalStateWarning" color="secondary" %}
   Warning information modal
 {% endModalBtn %}
 {% Modal id="exampleModalStateWarning" mode="information" fcenter=True %}
@@ -1184,7 +1184,7 @@ class ModalTest(SimpleTestCase):
     def test_example16(self):
         template = """
 {% load fluid_design %}
-{% ModalBtn type="button" modal="#exampleModalStateError" style="destructive" %}
+{% ModalBtn type="button" modal="#exampleModalStateError" color="destructive" %}
   Error information modal
 {% endModalBtn %}
 {% Modal id="exampleModalStateError" mode="information" fcenter=True %}
@@ -1360,7 +1360,7 @@ class ModalTest(SimpleTestCase):
 {% ModalBtn type="button" modal="#exampleModalCentered" %}
   Centered modal
 {% endModalBtn %}
-{% ModalBtn type="button" modal="#exampleModalCenteredDanger" variant="subtle" style="destructive" %}
+{% ModalBtn type="button" modal="#exampleModalCenteredDanger" variant="subtle" color="destructive" %}
   Centered danger modal
 {% endModalBtn %}
 {% Modal id="exampleModalCentered" vcenter=True %}
@@ -1381,10 +1381,10 @@ class ModalTest(SimpleTestCase):
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam.</p>
 
   {% Slot 'footer' %}
-    {% ModalCloseBtn type="button" variant="subtle" style="destructive" %}
+    {% ModalCloseBtn type="button" variant="subtle" color="destructive" %}
       Cancel
     {% endModalCloseBtn %}
-    {% Button type="button" style="destructive" %}Delete{% endButton %}
+    {% Button type="button" color="destructive" %}Delete{% endButton %}
   {% endSlot %}
 {% endModal %}
 """
@@ -1452,7 +1452,7 @@ class ModalTest(SimpleTestCase):
 {% ModalBtn type="button" modal="#exampleModalIcon" %}
   Info modal
 {% endModalBtn %}
-{% ModalBtn type="button" variant="subtle" style="destructive" modal="#exampleModalIconDanger" %}
+{% ModalBtn type="button" variant="subtle" color="destructive" modal="#exampleModalIconDanger" %}
   Info modal
 {% endModalBtn %}
 {% Modal id="exampleModalIcon" %}
@@ -1476,10 +1476,10 @@ class ModalTest(SimpleTestCase):
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam.</p>
 
   {% Slot 'footer' %}
-    {% ModalCloseBtn type="button" variant="subtle" style="destructive" %}
+    {% ModalCloseBtn type="button" variant="subtle" color="destructive" %}
       Cancel
     {% endModalCloseBtn %}
-    {% Button type="button" style="destructive" %}Delete{% endButton %}
+    {% Button type="button" color="destructive" %}Delete{% endButton %}
   {% endSlot %}
   {% Slot 'icon' %}
     {% Icon label="info" color="red" %}
@@ -1550,7 +1550,7 @@ class ModalTest(SimpleTestCase):
 {% ModalBtn type="button" modal="#exampleModalCheckbox" %}
   Confirmation modal with checkbox
 {% endModalBtn %}
-{% ModalBtn type="button" modal="#exampleModalCheckboxDanger" variant="subtle" style="destructive" %}
+{% ModalBtn type="button" modal="#exampleModalCheckboxDanger" variant="subtle" color="destructive" %}
   Danger modal with checkbox
 {% endModalBtn %}
 {% Modal id="exampleModalCheckbox" %}
@@ -1588,10 +1588,10 @@ class ModalTest(SimpleTestCase):
         </label>
       </div>
       <div class="d-flex">
-        {% ModalCloseBtn type="button" variant="subtle" style="destructive" %}
+        {% ModalCloseBtn type="button" variant="subtle" color="destructive" %}
           Cancel
         {% endModalCloseBtn %}
-        {% Button type="button" style="destructive" class="ml-1" %}
+        {% Button type="button" color="destructive" class="ml-1" %}
           Delete
         {% endButton %}
       </div>

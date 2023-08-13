@@ -17,8 +17,8 @@ from django.utils.safestring import mark_safe
 #-
 from ..tags import (autocomplete, avatar, badge, base, breadcrumb, button,
         card, checkbox_set, collapse, fab, footer, form_item, grid, header,
-        icon, icon_button, inline_message, link, list_, modal, radio_set, table,
-        tag)
+        icon, icon_button, inline_message, link, list_, modal, navbar,
+        pagination, progress, radio_set, segmented_control, table, tag)
 
 _logger = logging.getLogger(__name__)
 register = template.Library()
@@ -44,7 +44,11 @@ FLUID_DESIGN_TAGS = {
     **link.components,
     **list_.components,
     **modal.components,
+    **navbar.components,
+    **pagination.components,
+    **progress.components,
     **radio_set.components,
+    **segmented_control.components,
     **table.components,
     **tag.components,
 }

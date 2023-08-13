@@ -4,7 +4,7 @@ Icon Button
 
 See: https://www.engie.design/fluid-design-system/components/icon-button/
 """
-from .base import Node
+from .base import COLORS, Node
 
 class IconButton(Node):
     """IconButton component
@@ -13,13 +13,12 @@ class IconButton(Node):
     "Template Tag needs closing end tag."
     SLOTS = ('icon',)
     "Named children."
-    NODE_PROPS = ('disabled', 'style', 'size')
+    NODE_PROPS = ('disabled', 'color', 'size')
     "Extended Template Tag arguments."
     DEFAULT_TAG = 'button'
     "Rendered HTML tag."
-    POSSIBLE_STYLES = ('primary', 'secondary', 'tertiary', 'brand',
-            'destructive', 'inverse')
-    "Possible values for style argument."
+    POSSIBLE_COLORS = COLORS
+    "Possible values for color argument."
     POSSIBLE_SIZES = ('xs', 'sm', 'lg')
     "Possible values for size argument."
 
@@ -29,9 +28,9 @@ class IconButton(Node):
         if self.eval(self.kwargs.get('disabled'), context):
             values['props'].append(('disabled', ''))
 
-        style = self.eval(self.kwargs.get('style'), context)
-        if style in self.POSSIBLE_STYLES[1:]:
-            values['class'].append(f'nj-icon-btn--{style}')
+        color = self.eval(self.kwargs.get('color'), context)
+        if color in self.POSSIBLE_COLORS:
+            values['class'].append(f'nj-icon-btn--{color}')
 
         size = self.eval(self.kwargs.get('size'), context)
         if size in self.POSSIBLE_SIZES:

@@ -68,16 +68,16 @@ class IconTest(SimpleTestCase):
 <p>To use additional colors directly on the icon, you can use the color modifiers: <code>`nj-icon-material--{color}`</code> </p>
 <p class="nj-icon-material-text">
   <code>nj-icon-material--primary</code> (grey-800):
-  {% Icon style="primary" label="dashboard" %}
+  {% Icon color="primary" label="dashboard" %}
 </p>
 <p style="font-size: var(--nj-size-font-deci);">(this should be used with primary text which is grey 1000 so the icon doesn't drag too much attention)</p>
   <p class="nj-icon-material-text">
   <code>nj-icon-material--secondary</code> (grey-600):
-  {% Icon style="secondary" label="dashboard" %}
+  {% Icon color="secondary" label="dashboard" %}
 </p>
 <p class="nj-icon-material-text" style="background-color: var(--nj-color-background-high-contrast); color: var(--nj-color-text-inverse); padding: 4px;">
   <code>nj-icon-material--inverse</code> (grey-0):
-  {% Icon style="inverse" label="dashboard" %}
+  {% Icon color="inverse" label="dashboard" %}
 </p>
 
 <h4>2.2.1 Icon colors</h4>

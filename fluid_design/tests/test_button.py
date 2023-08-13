@@ -36,11 +36,11 @@ class ButtonTest(SimpleTestCase):
     def test_secondary(self):
         template = """
 {% load fluid_design %}
-{% Button type="button" style="secondary" %}Bold{% endButton %}
-{% Button type="button" style="secondary" variant="subtle" %}
+{% Button type="button" color="secondary" %}Bold{% endButton %}
+{% Button type="button" color="secondary" variant="subtle" %}
   Subtle
 {% endButton %}
-{% Button type="button" style="secondary" variant="minimal" %}
+{% Button type="button" color="secondary" variant="minimal" %}
   Minimal
 {% endButton %}
 """
@@ -56,11 +56,11 @@ class ButtonTest(SimpleTestCase):
     def test_destructive(self):
         template = """
 {% load fluid_design %}
-{% Button type="button" style="destructive" %}Bold{% endButton %}
-{% Button type="button" style="destructive" variant="subtle" %}
+{% Button type="button" color="destructive" %}Bold{% endButton %}
+{% Button type="button" color="destructive" variant="subtle" %}
   Subtle
 {% endButton %}
-{% Button type="button" style="destructive" variant="minimal" %}
+{% Button type="button" color="destructive" variant="minimal" %}
   Minimal
 {% endButton %}
 """
@@ -76,11 +76,11 @@ class ButtonTest(SimpleTestCase):
     def test_inverse(self):
         template = """
 {% load fluid_design %}
-{% Button type="button" style="inverse" %}Bold{% endButton %}
-{% Button type="button" style="inverse" variant="subtle" %}
+{% Button type="button" color="inverse" %}Bold{% endButton %}
+{% Button type="button" color="inverse" variant="subtle" %}
   Subtle
 {% endButton %}
-{% Button type="button" style="inverse" variant="minimal" %}
+{% Button type="button" color="inverse" variant="minimal" %}
   Minimal
 {% endButton %}
 """
@@ -164,7 +164,7 @@ class ButtonTest(SimpleTestCase):
   {% endButton %}
 </div>
 <div class="my-3 story-btn-row">
-  {% Button type="button" style="secondary" %}
+  {% Button type="button" color="secondary" %}
     Button
     {% Slot 'icon' %}
       <span aria-hidden="true"
@@ -173,7 +173,7 @@ class ButtonTest(SimpleTestCase):
       </span>
     {% endSlot %}
   {% endButton %}
-  {% Button type="button" style="secondary" variant="subtle" %}
+  {% Button type="button" color="secondary" variant="subtle" %}
     Button
     {% Slot 'icon' %}
       <span aria-hidden="true"
@@ -182,7 +182,7 @@ class ButtonTest(SimpleTestCase):
       </span>
     {% endSlot %}
   {% endButton %}
-  {% Button type="button" style="secondary" variant="minimal" %}
+  {% Button type="button" color="secondary" variant="minimal" %}
     Button
     {% Slot 'icon' %}
       <span aria-hidden="true"
@@ -193,7 +193,7 @@ class ButtonTest(SimpleTestCase):
   {% endButton %}
 </div>
 <div class="my-3 story-btn-row">
-  {% Button type="button" style="destructive" %}
+  {% Button type="button" color="destructive" %}
     Button
     {% Slot 'icon' %}
       <span aria-hidden="true"
@@ -202,7 +202,7 @@ class ButtonTest(SimpleTestCase):
       </span>
     {% endSlot %}
   {% endButton %}
-  {% Button type="button" style="destructive" variant="subtle" %}
+  {% Button type="button" color="destructive" variant="subtle" %}
     Button
     {% Slot 'icon' %}
       <span aria-hidden="true"
@@ -211,7 +211,7 @@ class ButtonTest(SimpleTestCase):
       </span>
     {% endSlot %}
   {% endButton %}
-  {% Button type="button" style="destructive" variant="minimal" %}
+  {% Button type="button" color="destructive" variant="minimal" %}
     Button
     {% Slot 'icon' %}
       <span aria-hidden="true"
@@ -223,7 +223,7 @@ class ButtonTest(SimpleTestCase):
 </div>
 <div class="my-3" style="background-color: var(--nj-color-palette-ultramarine-800)">
   <div class="p-2 story-btn-row">
-    {% Button type="button" style="inverse" %}
+    {% Button type="button" color="inverse" %}
       Button
       {% Slot 'icon' %}
         <span aria-hidden="true"
@@ -232,7 +232,7 @@ class ButtonTest(SimpleTestCase):
         </span>
       {% endSlot %}
     {% endButton %}
-    {% Button type="button" style="inverse" variant="subtle" %}
+    {% Button type="button" color="inverse" variant="subtle" %}
       Button
       {% Slot 'icon' %}
         <span aria-hidden="true"
@@ -241,7 +241,7 @@ class ButtonTest(SimpleTestCase):
         </span>
       {% endSlot %}
     {% endButton %}
-    {% Button type="button" style="inverse" variant="minimal" %}
+    {% Button type="button" color="inverse" variant="minimal" %}
       Button
       {% Slot 'icon' %}
         <span aria-hidden="true"
@@ -347,7 +347,7 @@ class ButtonTest(SimpleTestCase):
   {% endButton %}
 </div>
 <div class="my-3 story-btn-row">
-  {% Button type="button" style="secondary" %}
+  {% Button type="button" color="secondary" %}
     {% Slot 'icon' %}
       <span aria-hidden="true"
           class="nj-btn__icon nj-btn__icon--before material-icons">
@@ -355,7 +355,7 @@ class ButtonTest(SimpleTestCase):
       </span>
     {% endSlot %}
   {% endButton %}
-  {% Button type="button" style="secondary" variant="subtle" %}
+  {% Button type="button" color="secondary" variant="subtle" %}
     {% Slot 'icon' %}
       <span aria-hidden="true"
           class="nj-btn__icon nj-btn__icon--before material-icons">
@@ -363,7 +363,7 @@ class ButtonTest(SimpleTestCase):
       </span>
     {% endSlot %}
   {% endButton %}
-  {% Button type="button" style="secondary" variant="minimal" %}
+  {% Button type="button" color="secondary" variant="minimal" %}
     {% Slot 'icon' %}
       <span aria-hidden="true"
           class="nj-btn__icon nj-btn__icon--before material-icons">
@@ -373,7 +373,7 @@ class ButtonTest(SimpleTestCase):
   {% endButton %}
 </div>
 <div class="my-3 story-btn-row">
-  {% Button type="button" style="destructive" %}
+  {% Button type="button" color="destructive" %}
     {% Slot 'icon' %}
       <span aria-hidden="true"
           class="nj-btn__icon nj-btn__icon--before material-icons">
@@ -381,7 +381,7 @@ class ButtonTest(SimpleTestCase):
       </span>
     {% endSlot %}
   {% endButton %}
-  {% Button type="button" style="destructive" variant="subtle" %}
+  {% Button type="button" color="destructive" variant="subtle" %}
     {% Slot 'icon' %}
       <span aria-hidden="true"
           class="nj-btn__icon nj-btn__icon--before material-icons">
@@ -389,7 +389,7 @@ class ButtonTest(SimpleTestCase):
       </span>
     {% endSlot %}
   {% endButton %}
-  {% Button type="button" style="destructive" variant="minimal" %}
+  {% Button type="button" color="destructive" variant="minimal" %}
     {% Slot 'icon' %}
       <span aria-hidden="true"
           class="nj-btn__icon nj-btn__icon--before material-icons">
@@ -400,7 +400,7 @@ class ButtonTest(SimpleTestCase):
 </div>
 <div class="my-3" style="background-color: var(--nj-color-palette-ultramarine-800)">
   <div class="p-2 story-btn-row">
-    {% Button type="button" style="inverse" %}
+    {% Button type="button" color="inverse" %}
       {% Slot 'icon' %}
         <span aria-hidden="true"
             class="nj-btn__icon nj-btn__icon--before material-icons">
@@ -408,7 +408,7 @@ class ButtonTest(SimpleTestCase):
         </span>
       {% endSlot %}
     {% endButton %}
-    {% Button type="button" style="inverse" variant="subtle" %}
+    {% Button type="button" color="inverse" variant="subtle" %}
       {% Slot 'icon' %}
         <span aria-hidden="true"
             class="nj-btn__icon nj-btn__icon--before material-icons">
@@ -416,7 +416,7 @@ class ButtonTest(SimpleTestCase):
         </span>
       {% endSlot %}
     {% endButton %}
-    {% Button type="button" style="inverse" variant="minimal" %}
+    {% Button type="button" color="inverse" variant="minimal" %}
       {% Slot 'icon' %}
         <span aria-hidden="true"
             class="nj-btn__icon nj-btn__icon--before material-icons">
