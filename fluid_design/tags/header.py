@@ -21,8 +21,8 @@ class Header(Node):
     SLOTS = ('head_first', 'head_last', 'search')
     "Named children."
     NODE_PROPS = ('fixed', 'size', 'scroll', 'expand', 'href', 'logo_src',
-        'logo_alt', 'logo_width', 'logo_height', 'logo_alt_width',
-        'logo_alt_height')
+        'logosm_src', 'logo_width', 'logosm_width', 'logo_height',
+        'logosm_height', 'logo_alt')
     "Extended Template Tag arguments."
     DEFAULT_TAG = 'header'
     "Rendered HTML tag."
@@ -36,19 +36,18 @@ class Header(Node):
     def prepare(self, values, context):
         """Prepare values for rendering the templates
         """
-        values['header_logo_width'] = self.eval(
-                self.kwargs.get('logo_width'),
+        values['logo_width'] = self.eval(self.kwargs.get('logo_width'),
                 context) or ''
-        values['header_logo_height'] = self.eval(
-                self.kwargs.get('logo_height', 48),
+        values['logo_height'] = self.eval(self.kwargs.get('logo_height', 48),
                 context) or ''
-        values['header_logo_alt_width'] = self.eval(
-                self.kwargs.get('logo_alt_width'),
+        values['logosm_width'] = self.eval(self.kwargs.get('logosm_width'),
                 context) or ''
-        values['header_logo_alt_height'] = self.eval(
-                self.kwargs.get('logo_alt_height', 32),
-                context) or ''
+        values['logosm_height'] = self.eval(
+                self.kwargs.get('logosm_height', 32), context) or ''
         values['logo_src'] = self.eval(self.kwargs.get('logo_src'), context)
+        values['logosm_src'] = self.eval(self.kwargs.get('logosm_src',
+                values['logo_src']),
+                context)
         values['logo_alt'] = self.eval(self.kwargs.get('logo_alt', ''), context)
         values['href'] = self.eval(self.kwargs.get('href', '#'), context)
 
@@ -80,7 +79,7 @@ class Header(Node):
           aria-expanded="false">
         <button><div></div></button>
       </div>
-      {tmpl_head_logo_alt}
+      {tmpl_head_logosm}
       <ul class="nj-header__nav nj-header__nav--panel">
         {child}
       </ul>
@@ -116,23 +115,23 @@ class Header(Node):
             return ''
         tmpl = """
 <a href="{href}" class="nj-header__logo">
-  <img src="{logo_src}" alt="{logo_alt}" width="{header_logo_width}"
-      height="{header_logo_height}">
+  <img src="{logo_src}" alt="{logo_alt}" width="{logo_width}"
+      height="{logo_height}">
 </a>
 """
         return tmpl.format(**values)
 
 
-    def render_tmpl_head_logo_alt(self, values, context):
+    def render_tmpl_head_logosm(self, values, context):
         """Dynamically render a part of the component's template
         """
-        if not values['logo_src']:
+        if not values['logosm_src']:
             return ''
         tmpl = """
 <div class="nj-header__nav-logo--reduced">
   <a href="{href}">
-    <img src="{logo_src}" alt="{logo_alt}" width="{header_logo_alt_width}"
-        height="{header_logo_alt_height}">
+    <img src="{logosm_src}" alt="{logo_alt}" width="{logosm_width}"
+        height="{logosm_height}">
   </a>
 </div>
 """

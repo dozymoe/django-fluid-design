@@ -33,7 +33,7 @@ class HeaderTest(SimpleTestCase):
         template = """
 {% load fluid_design %}
 <div style="height: 60vh; transform: translateZ(0); overflow: auto">
-  {% Header fixed=True scroll="sm" expand="lg" logo_src="https://assets.design.digital.engie.com/brand/logo-engie-blue.svg" logo_alt="ENGIE" logo_width=133 logo_alt_width=31 %}
+  {% Header fixed=True scroll="sm" expand="lg" logo_src="https://assets.design.digital.engie.com/brand/logo-engie-blue.svg" logo_alt="ENGIE" logo_width=133 logosm_width=31 %}
     {% H_Menu active=True href="#" %}Accueil{% endH_Menu %}
     {% H_MenuTag href="#" color="green" %}News{% endH_MenuTag %}
     {% H_Menu href="#" %}Act with ENGIE{% endH_Menu %}
@@ -250,7 +250,7 @@ class HeaderTest(SimpleTestCase):
         template = """
 {% load fluid_design %}
 <div style="height: 60vh; transform: translateZ(0); overflow: auto">
-  {% Header fixed=True logo_src="https://assets.design.digital.engie.com/brand/logo-engie-blue.svg" logo_alt="ENGIE" logo_width=133 logo_alt_width=31 %}
+  {% Header fixed=True logo_src="https://assets.design.digital.engie.com/brand/logo-engie-blue.svg" logo_alt="ENGIE" logo_width=133 logosm_width=31 %}
     {% H_Menu active=True href="#" %}Accueil{% endH_Menu %}
     {% H_MenuTag href="#" color="green" %}News{% endH_MenuTag %}
     {% H_Menu href="#" %}Act with ENGIE{% endH_Menu %}
@@ -465,7 +465,7 @@ class HeaderTest(SimpleTestCase):
         template = """
 {% load fluid_design %}
 <div style="height: 60vh; transform: translateZ(0); overflow: auto">
-  {% Header size="sm" logo_src="https://assets.design.digital.engie.com/brand/logo-engie-blue.svg" logo_alt="ENGIE" logo_width=133 logo_alt_width=31 %}
+  {% Header size="sm" logo_src="https://assets.design.digital.engie.com/brand/logo-engie-blue.svg" logo_alt="ENGIE" logo_width=133 logosm_width=31 %}
     {% H_Menu active=True href="#" %}Accueil{% endH_Menu %}
     {% H_MenuTag href="#" color="green" %}News{% endH_MenuTag %}
     {% H_Menu href="#" %}Act with ENGIE{% endH_Menu %}
@@ -680,7 +680,7 @@ class HeaderTest(SimpleTestCase):
         template = """
 {% load fluid_design %}
 <div style="height: 60vh; transform: translateZ(0); overflow: auto">
-  {% Header fixed=True scroll="sm" logo_src="https://assets.design.digital.engie.com/brand/logo-engie-blue.svg" logo_alt="ENGIE" logo_width=133 logo_alt_width=31 %}
+  {% Header fixed=True scroll="sm" logo_src="https://assets.design.digital.engie.com/brand/logo-engie-blue.svg" logo_alt="ENGIE" logo_width=133 logosm_width=31 %}
     {% H_Menu active=True href="#" %}Accueil{% endH_Menu %}
     {% H_MenuTag href="#" color="green" %}News{% endH_MenuTag %}
     {% H_Menu href="#" %}Act with ENGIE{% endH_Menu %}
@@ -895,7 +895,7 @@ class HeaderTest(SimpleTestCase):
         template = """
 {% load fluid_design %}
 <div style="height: 60vh; transform: translateZ(0); overflow: auto">
-  {% Header fixed=True scroll="sm" expand="lg" logo_src="https://assets.design.digital.engie.com/brand/logo-engie-blue.svg" logo_alt="ENGIE" logo_width=133 logo_alt_width=31 %}
+  {% Header fixed=True scroll="sm" expand="lg" logo_src="https://assets.design.digital.engie.com/brand/logo-engie-blue.svg" logo_alt="ENGIE" logo_width=133 logosm_width=31 %}
     {% H_Menu active=True href="#" %}Accueil{% endH_Menu %}
     {% H_MenuTag href="#" color="green" %}News{% endH_MenuTag %}
     {% H_Menu href="#" %}Act with ENGIE{% endH_Menu %}
@@ -1109,7 +1109,7 @@ class HeaderTest(SimpleTestCase):
     def test_example6(self):
         template = """
 {% load fluid_design %}
-{% Header expand="lg" logo_src="https://assets.design.digital.engie.com/brand/logo-engie-blue.svg" logo_alt="ENGIE" logo_width=133 logo_alt_width=31 %}
+{% Header expand="lg" logo_src="https://assets.design.digital.engie.com/brand/logo-engie-blue.svg" logo_alt="ENGIE" logo_width=133 logosm_width=31 %}
   {% H_Menu active=True href="#" %}Accueil{% endH_Menu %}
   {% H_MenuTag href="#" color="teal" %}News{% endH_MenuTag %}
   {% H_Menu href="#" %}Act with ENGIE{% endH_Menu %}
@@ -1535,7 +1535,7 @@ class HeaderTest(SimpleTestCase):
     def test_example8(self):
         template = """
 {% load fluid_design %}
-{% Header size="sm" expand="lg" logo_src="https://assets.design.digital.engie.com/brand/logo-engie-blue.svg" logo_alt="ENGIE" logo_width=133 logo_alt_width=31 %}
+{% Header size="sm" expand="lg" logo_src="https://assets.design.digital.engie.com/brand/logo-engie-blue.svg" logo_alt="ENGIE" logo_width=133 logosm_width=31 %}
   {% H_Menu active=True href="#" %}Accueil{% endH_Menu %}
   {% H_MenuTag href="#" color="teal" %}News{% endH_MenuTag %}
   {% H_Menu href="#" %}Act with ENGIE{% endH_Menu %}
