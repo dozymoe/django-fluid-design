@@ -39,7 +39,7 @@ def pretty_html(value):
     return beautiful_html
 
 
-def compare_template(template, expected, context=None):
+def compare_template(template, expected, context=None, **kwargs):
     if context is None:
         im_io = BytesIO()
         im = Image.new(mode='RGB', size=(200, 200))
@@ -106,6 +106,8 @@ def compare_template(template, expected, context=None):
     else:
         context = Context(context)
 
+    if kwargs:
+        context.push(kwargs)
     return (
         pretty_html(expected),
         pretty_html(Template(template).render(context)),

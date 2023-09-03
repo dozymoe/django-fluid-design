@@ -6,7 +6,6 @@ See: https://www.engie.design/fluid-design-system/components/footer/
 
 Footer is mainly used for links and legal information.
 """
-
 from .base import Node
 
 class Footer(Node):
