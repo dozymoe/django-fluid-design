@@ -7,8 +7,7 @@ See: https://www.engie.design/fluid-design-system/components/table/
 Data table is used to display and organise all the data set. A data table is
 used to compare and analyze data sets.The data informations are always
 displayed in row and column.
-""" # pylint:disable=line-too-long
-
+"""
 from .base import Node
 
 class Table(Node):

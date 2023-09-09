@@ -19,7 +19,8 @@ from ..tags import (autocomplete, avatar, badge, base, breadcrumb, button,
         card, checkbox_set, collapse, fab, footer, form_item, grid, header,
         icon, icon_button, inline_message, link, list_, modal, navbar,
         pagination, progress, radio_set, segmented_control, sidebar, skeleton,
-        slider, spinner, stamp, table, tag)
+        slider, spinner, stamp, status_indicator, table, tabs, tag, toast,
+        toggle)
 
 _logger = logging.getLogger(__name__)
 register = template.Library()
@@ -55,8 +56,12 @@ FLUID_DESIGN_TAGS = {
     **slider.components,
     **spinner.components,
     **stamp.components,
+    **status_indicator.components,
     **table.components,
+    **tabs.components,
     **tag.components,
+    **toast.components,
+    **toggle.components,
 }
 
 
